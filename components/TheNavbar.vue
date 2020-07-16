@@ -13,6 +13,14 @@
     </nav>
 </template>
 
+<script>
+export default {
+    head: {
+    link: [{rel:'stylesheet', href:"https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"}]
+  },
+}
+</script>
+
 <style lang="scss" scoped>
     .navbar{
       width: 100%;
@@ -28,7 +36,7 @@
 
       &__title{
         font-size: 2rem;
-        font-weight: bold;
+        font-family: 'Abril Fatface', cursive;
       }
 
       &__features{

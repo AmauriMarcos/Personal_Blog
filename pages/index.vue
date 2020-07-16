@@ -1,12 +1,13 @@
 <template>
   <div>
-    <app-carousel></app-carousel>
+    <app-carousel :posts='posts'></app-carousel>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import Carousel from "../components/Carousel";
+
 export default {
     components: {
       appCarousel: Carousel

@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar">
-         <h1 class="navbar__title">the Atavist Magazine</h1>
+         <h1 class="navbar__title">Blooming Thoughts</h1>
          <div class="navbar__features">
             <ul class="navbar__list">
               <li class="navbar__list-items">Explore</li>

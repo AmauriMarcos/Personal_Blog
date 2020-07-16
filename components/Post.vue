@@ -1,0 +1,108 @@
+<template>
+    <div class="card">
+        <div class="card__thumbnail">
+            <img :src="`http://localhost:1337${image}`" alt="" class="card__thumbnail-img">
+        </div>
+       <div class="card__category">
+           <div class="card__category-name" v-for="(category, i) in categories" :key='i'>
+                <p>{{category.Name}}</p>
+           </div>
+       </div>
+       <h2 class="card__title">{{title}}</h2>
+       <p class="card__description">Algo muito curto para continuar para prender sua atenção</p>
+       <p class="card__author">{{author}}</p>
+       <p class="card__date">{{date}}</p>
+
+    </div>
+</template>
+
+<script>
+export default {
+    props: ["image", "categories", "title",  "date", "author"],
+    head:{
+        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" }],
+        
+        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap" }]
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+
+    .card {
+        height: 25rem;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: .5rem;
+
+        &__thumbnail{
+            grid-column: 1/-1;
+            grid-row: 1/2;
+            z-index: 1;
+            width: 100%;
+            height: 16.875rem;
+
+            &-img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                
+            }
+        }
+
+        &__category{
+            
+            background-color: #fff;
+            grid-column: 2/3;
+            grid-row: 1/2;
+            z-index: 5;
+            display: flex;
+            justify-self: flex-end;
+            align-self: flex-start;
+            padding: .65rem;
+
+            &-name{
+                font-size: 1rem;
+                font-family: 'Poppins', sans-serif;
+                color: #323232;
+                font-weight: 700;
+            }
+        }
+
+        &__title{
+            grid-column: 1/-1;
+            grid-row: 2/3;
+            font-family: 'Abril Fatface', cursive;
+            color: #323232;
+            width: 95%;
+            font-size: 2.15rem;
+        }
+
+        &__description{
+            grid-column: 1/-1;
+            grid-row: 3/4;
+            font-family: 'Poppins', sans-serif;
+            /* font-family: 'Montserrat', sans-serif; */
+            font-size: .9rem;
+             color: #323232;
+        }
+
+        &__author{
+            grid-column: 1/-1;
+            grid-row: 4/5;
+            font-size: .93rem;
+            color: #323232;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        &__date{
+            grid-column: 1/-1;
+            grid-row: 5/6;
+            font-size: .75rem;
+            color: #7A7A7A;
+            font-family: 'Poppins', sans-serif;
+        }
+     }
+
+</style>

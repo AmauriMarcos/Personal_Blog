@@ -31,7 +31,8 @@ export default {
   props: ['posts'],
   head:{
     link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700;800;900&display=swap" }],
-     link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap" }]
+    
+    link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap" }]
   }
 }
 </script>
@@ -61,7 +62,7 @@ export default {
 
 .v-window__prev,
 .v-window__next{
-  position: fixed !important;
+  /* position: fixed !important; */
 }
 
 .call{

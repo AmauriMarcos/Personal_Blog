@@ -34,9 +34,9 @@ export default {
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
-  plugins: [
-    { src: '~/plugins/ScrollMagic.js', mode: 'client' }
-  ],
+ plugins: [
+
+],
   /*
   ** Auto import components
   ** See https://nuxtjs.org/api/configuration-components
@@ -46,6 +46,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/vuetify',
   ],
   /*
   ** Nuxt.js modules

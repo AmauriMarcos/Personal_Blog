@@ -1,73 +1,83 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        blog
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+    <header class="static">
+      <div class="caixa">
+        <h1>Tata Chega Lá!</h1>
       </div>
-    </div>
+    </header>
+    <main>
+        <div v-for="n in 10" :key="n" class="master-rec">
+           <div class="rectangle">
+              {{n}}
+           </div>
+        </div>
+    </main>  
   </div>
 </template>
 
 <script>
-export default {}
+import axios from "axios";
+export default {
+    async asyncData(){
+       const res = await axios.get("http://localhost:1337/posts")
+       return {data: res.data}
+    },
+    mounted(){
+       const controller = new this.$scrollmagic.Controller();
+
+       new this.$scrollmagic.Scene({
+         duration: 500,
+         triggerElement: '.caixa'
+       })
+       .addIndicators()
+       .setPin(".caixa")
+       .addTo(controller);
+    }
+}
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+  .container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+  .static{
+    width: 50%;
+    height: 100vh;
+    background-color: brown;
 
-.links {
-  padding-top: 15px;
-}
+  }
+
+  .caixa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+  }
+
+  h1{
+    font-size: 4rem;
+
+  }
+
+  .master-rec{
+    width: 50vw;
+  }
+  .rectangle{
+     
+      height: 20rem;
+      background-color: rgb(201, 201, 201);
+      margin-bottom: 1rem;
+
+  }
 </style>

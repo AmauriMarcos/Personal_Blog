@@ -1,18 +1,20 @@
 <template>
-    <div class="card">
-        <div class="card__thumbnail">
-            <img :src="`http://localhost:1337${image}`" alt="" class="card__thumbnail-img">
+    <nuxt-link :to="`/${id}`" class="wrap-link">
+        <div class="card">
+            <div class="card__thumbnail">
+                <img :src="`http://localhost:1337${image}`" alt="" class="card__thumbnail-img">
+            </div>
+            <div class="card__category">
+                <div class="card__category-name" v-for="(category, i) in categories" :key='i'>
+                        <p>{{category.Name}}</p>
+                </div>
+            </div>
+            <h2 class="card__title">{{title}}</h2>
+            <p class="card__description">Algo muito curto apenas para prender sua atenção</p>
+            <p class="card__author">{{author}}</p>
+            <p class="card__date">{{date}}</p>
         </div>
-       <div class="card__category">
-           <div class="card__category-name" v-for="(category, i) in categories" :key='i'>
-                <p>{{category.Name}}</p>
-           </div>
-       </div>
-       <h2 class="card__title">{{title}}</h2>
-       <p class="card__description">Algo muito curto apenas para prender sua atenção</p>
-       <p class="card__author">{{author}}</p>
-       <p class="card__date">{{date}}</p>
-    </div>
+    </nuxt-link>
 </template>
 
 <script>
@@ -27,7 +29,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    .wrap-link{
+        text-decoration: none;
+    }
     .card {
         height: 25rem;
         width: 100%;

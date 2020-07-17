@@ -13,42 +13,58 @@
                 <img :src="`http://localhost:1337${url}`" alt="">
             </div>
 
-            <div class="article__info corp">
+            <div class="article__info ">
+                 <div class="article__info--author">
+                    <p>{{article.author}} <span class="simb">||</span></p>
+                </div>
                 <div class="article__info--date">
                     <p>{{article.date}}</p>
-                </div>
-                <div class="article__info--author">
-                    <p>{{article.author}}</p>
-                </div>
+                </div>             
             </div>
             <div class="article__body corp">
-                <p>{{article.body}}</p>
+                <p v-html="content">{{content}}</p>
             </div>       
         </div>   
-    </div>
-    
+    </div>   
 </template>
 
+
+
 <script>
+
+    const md = require('markdown-it')({
+        html: true,
+        linkify: true,
+        typographer: true,
+    })
+    .use(require('markdown-it-highlightjs'))
+    .use(require('markdown-it-attrs'));
+
 import axios from "axios";
 export default {
     layout: 'article',
       head:{
         link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" }],
         
-        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Ultra&display=swap" }]
+        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Ultra&display=swap" }],
+        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap" }]
     },
     data(){
         return{
             article: [],
-            url: ''
+            url: '',
+            content: ''
         }
     },
-   async created(){
-       const res = await axios.get(`http://localhost:1337/posts/${this.$route.params.id}`)
-       this.article = res.data
-       this.url = this.article.image.url
-    }
+    async created() {
+        const result = await axios.get(`http://localhost:1337/posts/${this.$route.params.id}`);
+
+        this.article = result.data
+        this.url = this.article.image.url
+        this.content = md.render(result.data.body)
+
+    },
+
 }
 </script>
 
@@ -100,23 +116,43 @@ export default {
         }
 
         &__info{
-
-            &--date{
-
-            }
+                font-family: 'Montserrat', sans-serif;
+                font-size: .9rem;
+                display: flex;
+                padding: 2rem;
+                margin-left: auto;
+                transform: translateX(-10rem);
+                font-weight: 700;
 
             &--author{
-
+                font-family: inherit;
+                font-size: inherit;
+                      
             }
+
+            &--date{
+                font-family: inherit;
+                font-size: inherit
+            }
+
+         
         }
 
         &__body{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            white-space: pre-line;
 
         }
     }
 
     .corp{
         padding: 2% 15%;
+    }
+
+    .simb{
+        margin: 0 .5rem;
     }
 
 </style>    

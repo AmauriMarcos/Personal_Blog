@@ -10,7 +10,10 @@
     "serve": "nuxt serve"
   },
   "dependencies": {
+    "@nuxtjs/markdownit": "^1.2.10",
     "axios": "^0.19.2",
+    "markdown-it-attrs": "^3.0.3",
+    "markdown-it-highlightjs": "^3.2.0",
     "nuxt": "^2.13.0"
   },
   "devDependencies": {

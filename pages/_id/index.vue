@@ -36,7 +36,7 @@ export default {
       head:{
         link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" }],
         
-        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap" }]
+        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Ultra&display=swap" }]
     },
     data(){
         return{
@@ -55,15 +55,18 @@ export default {
 <style lang="scss">
     .main{
         display: grid;
+        margin: 1rem;
     }
     .theBackground{
         height: 40rem;
         widows: 100%;
-        background: rgb(241, 241, 241);
+        background: #fce205;
         grid-column: 1/-1;
         grid-row: 1/2;
         z-index: 1;
-    }
+/*         -webkit-clip-path: polygon(0 0, 100% 0, 100% 25vh, 0 100%); */
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 60vh);
+}
     .article{
         display: flex;
         flex-direction: column;
@@ -88,10 +91,11 @@ export default {
         }
 
         &__title{
-            font-size: 1.8rem;
-            font-family: 'Abril Fatface', cursive;
-            color: #323232;
-            width: 90%;
+            font-size: 2.5rem;
+            font-family: 'Ultra', serif;
+            color: #000000;
+            line-height: 1;
+            width: 95%;
             margin: 3rem;
         }
 

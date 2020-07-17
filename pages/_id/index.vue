@@ -43,12 +43,9 @@
 import axios from "axios";
 export default {
     layout: 'article',
-      head:{
-        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" }],
-        
-        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Ultra&display=swap" }],
-        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap" }]
-    },
+     /*  head:{
+        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" }]
+    }, */
     data(){
         return{
             article: [],
@@ -72,11 +69,12 @@ export default {
     .main{
         display: grid;
         margin: 1rem;
+        background: #f4f7f6;
     }
     .theBackground{
         height: 40rem;
         widows: 100%;
-        background: #fce205;
+        background: #83d1c4;
         grid-column: 1/-1;
         grid-row: 1/2;
         z-index: 1;
@@ -93,6 +91,7 @@ export default {
         grid-row: 1/2;
         z-index: 10;
         padding: 3% 10%;
+        
 
         &__image{
             height: 30rem;
@@ -107,12 +106,17 @@ export default {
         }
 
         &__title{
-            font-size: 2.5rem;
-            font-family: 'Ultra', serif;
-            color: #000000;
-            line-height: 1;
             width: 95%;
             margin: 3rem;
+
+            & h1{
+                font-family: 'Alfa Slab One', cursive;
+                color: #111111;
+                line-height: 1;
+                letter-spacing: .3rem;
+               /*  font-weight: 700; */
+                font-size: 4.8rem;
+            }
         }
 
         &__info{
@@ -122,7 +126,7 @@ export default {
                 padding: 2rem;
                 margin-left: auto;
                 transform: translateX(-10rem);
-                font-weight: 700;
+                font-weight: 300;
 
             &--author{
                 font-family: inherit;
@@ -139,9 +143,10 @@ export default {
         }
 
         &__body{
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
+            font-family: 'Alegreya', serif;
+            font-size: 1.3rem;
             line-height: 1.7;
+            font-weight: 500;
             white-space: pre-line;
 
         }

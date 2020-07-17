@@ -20,11 +20,11 @@
 <script>
 export default {
     props: ["image", "categories", "title",  "date", "author", "id"],
-    head:{
+  /*   head:{
         link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" }],
         
         link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap" }]
-    }
+    } */
 }
 </script>
 

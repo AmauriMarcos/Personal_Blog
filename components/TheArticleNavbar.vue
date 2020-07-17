@@ -14,9 +14,9 @@
 
 <script>
 export default {
-    head: {
+    /* head: {
     link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700;800;900&display=swap" }],
-  },
+  }, */
 }
 </script>
 

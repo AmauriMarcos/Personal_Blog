@@ -8,6 +8,7 @@
                   :title='post.title'
                   :date='post.date'
                   :author='post.author'
+                  :id='post.id'
             ></Post>
         </div>
     </div>

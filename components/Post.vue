@@ -9,16 +9,15 @@
            </div>
        </div>
        <h2 class="card__title">{{title}}</h2>
-       <p class="card__description">Algo muito curto para continuar para prender sua atenção</p>
+       <p class="card__description">Algo muito curto apenas para prender sua atenção</p>
        <p class="card__author">{{author}}</p>
        <p class="card__date">{{date}}</p>
-
     </div>
 </template>
 
 <script>
 export default {
-    props: ["image", "categories", "title",  "date", "author"],
+    props: ["image", "categories", "title",  "date", "author", "id"],
     head:{
         link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" }],
         

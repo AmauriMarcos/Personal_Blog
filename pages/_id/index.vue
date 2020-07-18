@@ -15,7 +15,7 @@
 
             <div class="article__info ">
                  <div class="article__info--author">
-                    <p>{{article.author}} <span class="simb">||</span></p>
+                    <p>by {{article.author}} <span class="simb">|</span></p>
                 </div>
                 <div class="article__info--date">
                     <p>{{article.date}}</p>
@@ -42,10 +42,7 @@
 
 import axios from "axios";
 export default {
-    layout: 'article',
-     /*  head:{
-        link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" }]
-    }, */
+   /*  layout: 'article', */
     data(){
         return{
             article: [],
@@ -66,6 +63,15 @@ export default {
 </script>
 
 <style lang="scss">
+    h4{
+         background: linear-gradient(180deg, rgba(255,255,255,0)65%, #83d1c4 65%);
+         display: inline;
+     
+    }
+
+    p{
+        /* margin-top: 1rem; */
+    }
     .main{
         display: grid;
         margin: 1rem;

@@ -1,6 +1,7 @@
 <template>
     <nav class="navbar">
-         <h1 class="navbar__title">Blooming Thoughts</h1>
+      
+         <h1 class="navbar__title"><span class="bloom">Blooming</span> Thoughts</h1>
          <div class="navbar__features">
             <ul class="navbar__list">
               <li class="navbar__list-items">Explore</li>
@@ -10,6 +11,7 @@
                <p>Search</p>
             </div>
          </div>
+         <img class="navbar__logo" src="../assets/logo.svg" alt="">
     </nav>
 </template>
 
@@ -22,6 +24,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .bloom{
+        color: #ee7b54;
+        margin-right: .5rem;
+      }
     .navbar{
       width: 100%;
       height: 6rem;
@@ -32,7 +38,12 @@ export default {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      z-index: 5;
+      z-index: 500;
+
+      &__logo{
+        width: 200px;
+        height: 200px;
+      }
 
       &__title{
         font-size: 2rem;

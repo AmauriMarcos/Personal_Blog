@@ -9,7 +9,13 @@
                         <p>{{category.Name}}</p>
                 </div>
             </div>
-            <h2 class="card__title">{{title}}</h2>
+            <h2 class="card__title">
+                
+                 <nuxt-link tag='a' :to="`/${id}`" class="card__title-link">
+                    {{title}} 
+                 </nuxt-link>
+               
+            </h2>
             <p class="card__description">Algo muito curto apenas para prender sua atenção</p>
             <p class="card__author">{{author}}</p>
             <p class="card__date">{{date}}</p>
@@ -29,8 +35,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    
     .wrap-link{
-        text-decoration: none;
+        text-decoration: none;       
     }
     .card {
         height: 25rem;
@@ -80,6 +87,15 @@ export default {
             color: #323232;
             width: 95%;
             font-size: 2.15rem;
+
+            &-link{
+                text-decoration: none;
+                color: inherit;
+            }
+
+            &-link:hover{             
+                background: linear-gradient(180deg, rgba(255,255,255,0)65%, #83d1c4 65%);
+            }
         }
 
         &__description{

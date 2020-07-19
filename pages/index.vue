@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="home">
     <app-carousel :posts='posts'></app-carousel>
     <div class="collection" >
         <div v-for="(post, i) in posts" :key='i'>
@@ -38,6 +38,14 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  #home{
+    background: #f4f7f6;
+  }
+
+  .theme--light.v-application{
+    background: #f4f7f6 !important;
   }
 
   .collection{

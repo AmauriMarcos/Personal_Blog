@@ -37,7 +37,7 @@ export default {
 <style lang="scss" scoped>
     
     .wrap-link{
-        text-decoration: none;       
+        text-decoration: none;     
     }
     .card {
         height: 25rem;
@@ -45,6 +45,7 @@ export default {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         row-gap: .5rem;
+    
 
         &__thumbnail{
             grid-column: 1/-1;

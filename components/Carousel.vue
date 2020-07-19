@@ -18,6 +18,7 @@
                 
               </div>
               
+               
               </v-carousel-item>  
                                              
         </v-carousel>
@@ -42,10 +43,12 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  
   }
 
   .header{
     height: 85vh;
+    
   }
 
 

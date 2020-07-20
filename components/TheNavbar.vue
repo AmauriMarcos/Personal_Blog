@@ -106,6 +106,7 @@ export default {
         font-size: 2rem;
         font-family: 'Abril Fatface', cursive;
         cursor: pointer;
+        color: #82D0C3;;
       }
 
     

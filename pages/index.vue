@@ -18,6 +18,7 @@
     <div id="view-all">
       <nuxt-link class="view-all-link" to="/posts">View All</nuxt-link>
     </div>
+    <Newsletter></Newsletter>
   </div>
 </template>
 
@@ -25,11 +26,13 @@
 import axios from "axios";
 import Carousel from "../components/Carousel";
 import Post from "../components/Post"
+import Newsletter from "../components/Newsletter";
 
 export default {
     components: {
       appCarousel: Carousel,
-      Post
+      Post,
+      Newsletter
     },
 
     data(){

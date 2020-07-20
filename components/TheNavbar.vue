@@ -1,10 +1,11 @@
 <template>
     <div class="navbar">
-      
-         <h1 class="navbar__title"><span class="bloom">Blooming</span> Thoughts</h1>
+
+         <nuxt-link tag='h1' to='/' class="navbar__title"><span class="bloom">Blooming</span> Thoughts</nuxt-link>
          <ul class="navbar__explore">
             <li>Explore
                 <ul>
+                  <div class="small-block"></div>
                   <li v-for='(category, i) in categories' :key="i">
                       <nuxt-link tag='a' :to="`/categories/${category.Name}`" class="myLink">{{category.Name}}</nuxt-link>
                   </li> 
@@ -34,8 +35,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    .small-block{
+      height: 15px;
+      background-color: transparent;
+    }
     .myLink:hover{
-      color: #ee7b54;
+      color: #82D0C3;
+      
     }
 
       ul > li {
@@ -56,7 +63,7 @@ export default {
           font-family: 'Montserrat', sans-serif;
           padding: 0 3rem 0 1rem;
           width: 10rem;
-          transform: translateY(.3rem) translateX(-1.3rem);
+          transform: translateY(.2rem) translateX(-1.3rem);
       }
 
       ul ul li{
@@ -98,6 +105,7 @@ export default {
       &__title{
         font-size: 2rem;
         font-family: 'Abril Fatface', cursive;
+        cursor: pointer;
       }
 
     

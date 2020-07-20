@@ -4,7 +4,7 @@
             <p class="blooming-category-article__display-date">{{date}}</p>
             <h2 class="blooming-category-article__display-title">{{title}}</h2>
             <p class="blooming-category-article__display-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad rem harum, laborum voluptatum maiores beatae!</p>
-            <h4 class="blooming-category-article__display-author">{{author}}</h4>
+            <h5 class="blooming-category-article__display-author">{{author}}</h5>
          </div>
          
          <div class="blooming-category-article__box-image">
@@ -62,6 +62,8 @@ export default {
             &-author{
                 color: #323232;
                 font-weight: 600;
+                text-decoration: none;
+                font-size: 1rem;
             }
         }
 

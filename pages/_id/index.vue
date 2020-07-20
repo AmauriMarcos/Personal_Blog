@@ -85,7 +85,7 @@ export default {
         grid-row: 1/2;
         z-index: 1;
 /*         -webkit-clip-path: polygon(0 0, 100% 0, 100% 25vh, 0 100%); */
-        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 60vh);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 70vh);
 }
     .article{
         display: flex;
@@ -112,16 +112,17 @@ export default {
         }
 
         &__title{
-            width: 95%;
-            margin: 3rem;
+           /*  width: 95%; */
+            margin: 7rem 0 3rem 0;
+            color: #323232;
 
             & h1{
                 font-family: 'Alfa Slab One', cursive;
-                color: #111111;
-                line-height: 1;
+                color: #323232;
+                line-height: 1.1;
                 letter-spacing: .3rem;
                /*  font-weight: 700; */
-                font-size: 4.8rem;
+                font-size: 4.4rem;
             }
         }
 

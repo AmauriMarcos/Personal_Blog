@@ -9,6 +9,7 @@
                      :title='article.title'
                      :author='article.author'
                      :image='article.image.url'
+                     :id='article.id'
             ></Article>
         </div>
     </div>

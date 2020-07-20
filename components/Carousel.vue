@@ -4,23 +4,23 @@
       <v-app id="inspire" >
         <v-carousel style="height: 90vh" cycle>
             
-              <v-carousel-item
-                v-for="(post,i) in posts"
-                :key="i"
-                :src="`http://localhost:1337${posts[i].image.url}`"
-                reverse-transition="fade-transition"
-              >
-              <div class="call">
-                <h1 class="call__title">{{posts[i].title}}</h1>
-                <div class="call__box">
-                  <p class="call__box-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque dignissimos nesciunt delectus. Cumque veniam labore rerum commodi perspiciatis. Dignissimos voluptates, atque modi accusamus placeat beatae eveniet animi minima! Eius, repudiandae!</p>
-                </div>
-                
-              </div>
-              
-               
-              </v-carousel-item>  
-                                             
+             
+                <v-carousel-item
+                  v-for="(post,i) in posts"
+                  :key="i"
+                  :src="`http://localhost:1337${posts[i].image.url}`"
+                  reverse-transition="fade-transition"
+                >
+                <nuxt-link :to="`/${posts[i].id}`" class="wrap-link">
+                  <div class="call">
+                    <h1 class="call__title">{{posts[i].title}}</h1>
+                    <div class="call__box">
+                      <p class="call__box-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque dignissimos nesciunt delectus. Cumque veniam labore rerum commodi perspiciatis. Dignissimos voluptates, atque modi accusamus placeat beatae eveniet animi minima! Eius, repudiandae!</p>
+                    </div>                  
+                  </div>
+                </nuxt-link>                  
+                </v-carousel-item>  
+                                         
         </v-carousel>
       </v-app>
     </div>
@@ -58,26 +58,31 @@ export default {
   
   }
 
+  .wrap-link{
+        text-decoration: none;     
+        color: #fff !important;
+    }
+
   .header{
     height: 85vh;
     
   }
 
-.v-carousel__item{
-  height: 90vh !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .v-carousel__item{
+    height: 90vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.v-carousel__controls{
-  background: transparent !important;
-}
+  .v-carousel__controls{
+    background: transparent !important;
+  }
 
-.v-window__prev,
-.v-window__next{
-  /* position: fixed !important; */
-}
+  .v-window__prev,
+  .v-window__next{
+    /* position: fixed !important; */
+  }
 
 .call{
   width: 55%;

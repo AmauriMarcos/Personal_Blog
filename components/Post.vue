@@ -1,5 +1,5 @@
 <template>
-    <nuxt-link :to="`/${id}`" class="wrap-link">
+    <nuxt-link :to="`/posts/${id}`" class="wrap-link">
         <div class="card">
             <div class="card__thumbnail">
                 <img :src="`http://localhost:1337${image}`" alt="" class="card__thumbnail-img">

@@ -28,12 +28,24 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  props: ['posts'],
+
   head:{
     link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700;800;900&display=swap" }],
     
     link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap" }]
+  },
+  data(){
+    return{
+      posts: []
+    }
+  },
+  async created(){
+     const res = await axios.get("http://localhost:1337/posts")
+       res.data.slice(0,4).map((post) =>{
+           return this.posts.push(post);
+       })
   }
 }
 </script>
@@ -50,7 +62,6 @@ export default {
     height: 85vh;
     
   }
-
 
 .v-carousel__item{
   height: 90vh !important;

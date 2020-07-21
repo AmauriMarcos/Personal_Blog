@@ -1,13 +1,15 @@
 <template>
-  <v-layout class="comment-box">
-    <v-container>
-      <vue-disqus
+  <div class="comments">
+      <Disqus class="comments__disqus"></Disqus>
+  </div>
+    <!--   <vue-disqus
         shortname="blooming-thoughts"
         :identifier="`https://jolly-heyrovsky-2d6338.netlify.app/${id}`"
         :url="`https://jolly-heyrovsky-2d6338.netlify.app/${id}`"
-      ></vue-disqus>
-    </v-container>
-  </v-layout>
+        
+      ></vue-disqus> -->
+      
+    
 </template>
 
 <script>
@@ -15,3 +17,13 @@ export default {
   props: ['id']
 }
 </script>
+
+<style lang="scss">
+    .comments{
+        width: 100%;
+
+        &__disqus{
+            width: 100%;
+        }
+    }
+</style>

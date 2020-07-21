@@ -9,12 +9,10 @@
                         <p>{{category.Name}}</p>
                 </div>
             </div>
-            <h2 class="card__title">
-                
-                 <nuxt-link tag='a' :to="`/${id}`" class="card__title-link">
+            <h2 class="card__title">                
+                <nuxt-link tag='a' :to="`/${id}`" class="card__title-link">
                     {{title}} 
-                 </nuxt-link>
-               
+                </nuxt-link>               
             </h2>
             <p class="card__description">Algo muito curto apenas para prender sua atenção</p>
             <p class="card__author">{{author}}</p>
@@ -88,7 +86,8 @@ export default {
             font-family: 'Abril Fatface', cursive;
             color: #323232;
             width: 95%;
-            font-size: 2.15rem;
+            font-size: 2rem;
+            line-height: 1.3;
 
             &-link{
                 text-decoration: none;

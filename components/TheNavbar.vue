@@ -1,6 +1,5 @@
 <template>
     <div class="navbar">
-
          <nuxt-link tag='h1' to='/' class="navbar__title"><span class="bloom">Blooming</span> Thoughts</nuxt-link>
          <ul class="navbar__explore">
             <li>Explore
@@ -12,7 +11,7 @@
               </ul>
             </li>
         </ul>
-         <img class="navbar__logo" src="../assets/logo.svg" alt="">
+        <img class="navbar__logo" src="../assets/logo.svg" alt="">
     </div>
 </template>
 
@@ -93,9 +92,10 @@ export default {
       left: 0;
       background-color: rgb(255, 255, 255);
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: center;
       z-index: 500;
+      padding: 0 10%;
 
       &__logo{
         width: 200px;
@@ -107,6 +107,7 @@ export default {
         font-family: 'Abril Fatface', cursive;
         cursor: pointer;
         color: #82D0C3;;
+        transform: translateX(4.7rem);
       }
 
     

@@ -23,7 +23,8 @@
             </div>
             <div class="article__body corp">
                 <p v-html="content">{{content}}</p>
-            </div>       
+            </div>   
+            <Comments :id='article.id'></Comments>    
         </div>   
     </div>   
 </template>
@@ -32,17 +33,21 @@
 
 <script>
 
-    const md = require('markdown-it')({
-        html: true,
-        linkify: true,
-        typographer: true,
-    })
-    .use(require('markdown-it-highlightjs'))
-    .use(require('markdown-it-attrs'));
+const md = require('markdown-it')({
+    html: true,
+    linkify: true,
+    typographer: true,
+})
+.use(require('markdown-it-highlightjs'))
+.use(require('markdown-it-attrs'));
 
 import axios from "axios";
+import Comments from "../../components/Comments";
 export default {
    /*  layout: 'article', */
+   componets:{
+       Comments
+   },
     data(){
         return{
             article: [],

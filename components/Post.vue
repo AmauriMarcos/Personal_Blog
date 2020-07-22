@@ -6,7 +6,7 @@
             </div>
             <div class="card__category">
                 <div class="card__category-name" v-for="(category, i) in categories" :key='i'>
-                        <p>{{category.Name}}</p>
+                        <p>{{category.name}}</p>
                 </div>
             </div>
             <h2 class="card__title">                

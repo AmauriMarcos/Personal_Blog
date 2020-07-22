@@ -3,12 +3,12 @@
         <div class="category-id-page__box">
             <h3>Category: {{$route.params.id}}</h3>
         </div>
-        
+         
         <div v-for="article in articles" :key='article.id' class="category-id-page__article">
             <Article :date='article.date'
                      :title='article.title'
                      :author='article.author'
-                     :image='article.image.url'
+                     :image='article.image.name'
                      :id='article.id'
             ></Article>
         </div>

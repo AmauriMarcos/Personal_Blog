@@ -6,7 +6,7 @@
                 <ul>
                   <div class="small-block"></div>
                   <li v-for='(category, i) in categories' :key="i">
-                      <nuxt-link tag='a' :to="`/categories/${category.Name}`" class="myLink">{{category.Name}}</nuxt-link>
+                      <nuxt-link tag='a' :to="`/categories/${category.name}`" class="myLink">{{category.name}}</nuxt-link>
                   </li> 
               </ul>
             </li>

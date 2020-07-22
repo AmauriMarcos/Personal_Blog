@@ -10,7 +10,7 @@
          </div>
          
          <div class="blooming-category-article__box-image">
-             <img :src="`${image.name}`" alt="" class="blooming-category-article__box-image__img">
+             <img :src="`${image}`" alt="" class="blooming-category-article__box-image__img">
          </div>
          
      </div>

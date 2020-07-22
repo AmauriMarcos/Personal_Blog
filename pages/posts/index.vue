@@ -3,7 +3,7 @@
         <h1 class="posts-title">ALL POSTS</h1>
         <div class="collection" >
             <div v-for="(post, i) in posts" :key='i'>
-                <Post :image='post.image.url' 
+                <Post :image='post.image.name' 
                       :categories='post.categories'
                       :title='post.title'
                       :date='post.date'
@@ -19,7 +19,7 @@
 import axios from "axios";
 export default {
     async asyncData(){
-        const res = await axios.get("http://localhost:1337/posts")
+        const res = await axios.get("https://blooming-thoughts.herokuapp.com/posts")
         return{posts: res.data}
     }
 }

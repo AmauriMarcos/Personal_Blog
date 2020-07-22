@@ -10,7 +10,7 @@
             </div>
 
              <div class="article__image">
-                <img :src="`https://blooming-thoughts.herokuapp.com${url}`" alt="">
+                <img :src="`${url}`" alt="">
             </div>
 
             <div class="article__info ">
@@ -59,7 +59,8 @@ export default {
         const result = await axios.get(`https://blooming-thoughts.herokuapp.com/posts/${this.$route.params.id}`);
 
         this.article = result.data
-        this.url = this.article.image.url
+        this.url = this.article.image.name
+        console.log('HELLO');
         this.content = md.render(result.data.body)
 
     },

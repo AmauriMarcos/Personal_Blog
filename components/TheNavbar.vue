@@ -11,7 +11,7 @@
               </ul>
             </li>
         </ul>
-        <img class="navbar__logo" src="../assets/logo.svg" alt="">
+        <img class="navbar__logo" src="../assets/logoT.svg" alt="">
     </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
     }
   },
   async created(){
-     const res = await axios.get("http://localhost:1337/categories")
+     const res = await axios.get("https://blooming-thoughts.herokuapp.com/categories")
      this.categories = res.data
   } 
 }
@@ -98,8 +98,9 @@ export default {
       padding: 0 10%;
 
       &__logo{
-        width: 200px;
-        height: 200px;
+        width: 450px;
+        height: 450px;
+        transform: translateX(8rem);
       }
 
       &__title{

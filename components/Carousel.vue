@@ -3,12 +3,12 @@
     <div id="app">
       <v-app id="inspire" >
         <v-carousel style="height: 90vh" cycle>
-            
+            /posts
              
                 <v-carousel-item
                   v-for="(post,i) in posts"
                   :key="i"
-                  :src="`http://localhost:1337${posts[i].image.url}`"
+                  :src="`${posts[i].image.name}`"
                   reverse-transition="fade-transition"
                 >
                 <nuxt-link :to="`/${posts[i].id}`" class="wrap-link">
@@ -42,7 +42,7 @@ export default {
     }
   },
   async created(){
-     const res = await axios.get("http://localhost:1337/posts")
+     const res = await axios.get("https://blooming-thoughts.herokuapp.com/posts")
        res.data.slice(0,4).map((post) =>{
            return this.posts.push(post);
        })

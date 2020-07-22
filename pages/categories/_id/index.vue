@@ -29,7 +29,7 @@ export default {
         }
     },
     async created(){
-        const res = await axios.get(`http://localhost:1337/categories?Name=${this.$route.params.id}`)
+        const res = await axios.get(`https://blooming-thoughts.herokuapp.com/categories?name=${this.$route.params.id}`)
         this.category = res.data
         this.category.map((categ) =>{
             this.articles = categ.posts

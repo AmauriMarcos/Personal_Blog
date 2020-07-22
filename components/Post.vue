@@ -2,7 +2,7 @@
     <nuxt-link :to="`/${id}`" class="wrap-link">
         <div class="card">
             <div class="card__thumbnail">
-                <img :src="`http://localhost:1337${image}`" alt="" class="card__thumbnail-img">
+                <img :src="`${image}`" alt="" class="card__thumbnail-img">
             </div>
             <div class="card__category">
                 <div class="card__category-name" v-for="(category, i) in categories" :key='i'>

@@ -6,7 +6,7 @@
     </div>
     <div class="collection" >
         <div v-for="(post, i) in posts" :key='i'>
-            <Post :image='post.image.url' 
+            <Post :image='post.image.name' 
                   :categories='post.categories'
                   :title='post.title'
                   :date='post.date'
@@ -41,7 +41,7 @@ export default {
       }
   },
   async created(){
-     const res = await axios.get("http://localhost:1337/posts")
+     const res = await axios.get("https://blooming-thoughts.herokuapp.com/posts")
        res.data.slice(4,-1).map((post) =>{
            return this.posts.push(post);
        })

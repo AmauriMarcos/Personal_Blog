@@ -10,7 +10,7 @@
             </div>
 
              <div class="article__image">
-                <img :src="`http://localhost:1337${url}`" alt="">
+                <img :src="`https://blooming-thoughts.herokuapp.com${url}`" alt="">
             </div>
 
             <div class="article__info ">

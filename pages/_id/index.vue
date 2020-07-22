@@ -56,7 +56,7 @@ export default {
         }
     },
     async created() {
-        const result = await axios.get(`http://localhost:1337/posts/${this.$route.params.id}`);
+        const result = await axios.get(`https://blooming-thoughts.herokuapp.com/posts/${this.$route.params.id}`);
 
         this.article = result.data
         this.url = this.article.image.url

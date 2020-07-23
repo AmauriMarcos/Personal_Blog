@@ -10,26 +10,37 @@
                   </li> 
               </ul>
             </li>
+            <nuxt-link tag='li' to='/about' class="about">About</nuxt-link>
         </ul>
+        
+        <TheSearchInput></TheSearchInput>
+
         <img class="navbar__logo" src="../assets/logoT.svg" alt="">
     </div>
 </template>
 
 <script>
+import TheSearchInput from "../components/TheSearchInput";
 import axios from "axios";
 export default {
+  components:{
+    TheSearchInput
+  },
     head: {
     link: [{rel:'stylesheet', href:"https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"}]
   },
   data(){
     return{
-       categories: []
+      categories: [],      
     }
   },
+  
   async created(){
      const res = await axios.get("https://blooming-thoughts.herokuapp.com/categories")
      this.categories = res.data
-  } 
+
+  },
+ 
 }
 </script>
 
@@ -49,6 +60,7 @@ export default {
           font-family: 'Montserrat', sans-serif;
           cursor: pointer;
           list-style: none;
+          font-weight: 700;
       }
 
       ul ul {
@@ -96,6 +108,14 @@ export default {
       align-items: center;
       z-index: 500;
       padding: 0 10%;
+      
+      &__explore{
+        display: flex;
+
+        .about{
+          margin-left: 1.4rem;
+        }
+      }
 
       &__logo{
         width: 450px;
@@ -137,5 +157,8 @@ export default {
         /* display: flex;
         flex-direction: column; */
     }
+
+    
+
    
 </style>

@@ -34,8 +34,8 @@ export default {
         this.category.map((categ) =>{
             this.articles = categ.posts
         })
-
-    }
+    },
+  
 }
 </script>
 

@@ -19,7 +19,7 @@
 
 <script>
 export default {
-    props: ['date', 'title', 'author', 'image', 'id']
+    props: ['date', 'title', 'author', 'image', 'id',]
 }
 </script>
 

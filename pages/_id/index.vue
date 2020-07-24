@@ -23,7 +23,8 @@
             </div>
             <div class="article__body corp">
                 <p v-html="content">{{content}}</p>
-            </div>   
+            </div> 
+           
             <Comments :id='article.id'></Comments>    
         </div>   
     </div>   

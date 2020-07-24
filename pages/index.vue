@@ -1,7 +1,7 @@
 <template>
   <div id="home">
-    <app-carousel></app-carousel>
-    <div id='subtitle-home'>
+    <app-carousel  class='carousel'></app-carousel>
+    <div class='subtitle-home'>
        <h2>Latest Posts</h2>
     </div>
     <div class="collection" >
@@ -19,6 +19,10 @@
       <nuxt-link class="view-all-link" to="/posts">View All</nuxt-link>
     </div>
     <Newsletter></Newsletter>
+    
+    <ListLifestyle></ListLifestyle>
+    <ListTravel></ListTravel>
+    
   </div>
 </template>
 
@@ -27,36 +31,32 @@ import axios from "axios";
 import Carousel from "../components/Carousel";
 import Post from "../components/Post"
 import Newsletter from "../components/Newsletter";
+import ListTravel from "../components/ListTravel";
+import ListLifestyle from "../components/ListLifestyle";
 
 export default {
     components: {
       appCarousel: Carousel,
       Post,
-      Newsletter
+      Newsletter,
+      ListTravel,
+      ListLifestyle
     },
 
     data(){
       return{
         posts: []
+   
       }
   },
   async created(){
-     const res = await axios.get("https://blooming-thoughts.herokuapp.com/posts")
-       res.data.slice(4,-1).map((post) =>{
-           return this.posts.push(post);
-       })
+
+    const res = await axios.get("https://blooming-thoughts.herokuapp.com/posts")  
+      //6 posts que aparecem na pagina inicial
+        res.data.slice(4, 10).map((post) =>{
+          return this.posts.push(post);
+      })
   }
-    
-   /*  async asyncData(){
-       const res = await axios.get("http://localhost:1337/posts")
-       let arr = [];
-       res.data.slice(4,-1).map((post,i) =>{
-           arr.push(post)
-       })
-
-       return {posts: res.data}
-    } */
-
 }
 </script>
 
@@ -81,25 +81,26 @@ export default {
     background: #f4f7f6;
   }
 
-  #subtitle-home{
+  .carousel{
+    margin-bottom: 3rem;
+  }
+
+  .subtitle-home{
     font-family: 'Montserrat', sans-serif;
     color: #323232;
     font-weight: 700;
-    transform: translateY(5rem);
-    padding: 2% 0;
-    display: flex;
+    padding: 4% 0;
     font-size: 1.4rem;
-    align-items: center;
-    justify-content: center;
     z-index: 100;
-  
+    text-align: center;
+
   }
 
   #view-all{
     font-family: 'Montserrat', sans-serif;
     color: #323232;
     font-weight: 700;
-    padding: 2% 0;
+    padding: 5rem 0;
     display: flex;
     font-size: 1.3rem;
     align-items: center;
@@ -113,7 +114,7 @@ export default {
   }
 
   .collection{
-    padding: 7% 15%;
+    padding: 2% 15% 3% 15%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     column-gap: 1.5rem;

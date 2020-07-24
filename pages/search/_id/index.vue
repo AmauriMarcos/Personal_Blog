@@ -3,15 +3,22 @@
         <div class="category-id-page__box">
             <h3>Search Results for: {{$route.params.id}}</h3>
         </div>
-        <div v-for="result in results" :key='result.id' class="category-id-page__article">
-        <Search
-            :date='result.date'
-            :title='result.title'
-            :image='result.image.name'
-            :id='result.id'
-            :author='result.author'
-        ></Search>
+
+        <div v-for="result in results" :key='result.id' class="category-id-page__article" >
+            <Search
+                :date='result.date'
+                :title='result.title'
+                :image='result.image.name'
+                :id='result.id'
+                :author='result.author'
+                v-if="!empty"
+            ></Search>
         </div>
+       
+        <div class="no-results" v-if="empty">
+            <h2>0 results for {{$route.params.id}}</h2>
+        </div>
+       
     </div>
 </template>
 <script>
@@ -23,18 +30,34 @@ export default {
     },
     data(){
         return{
-            results: []
+            results: [],
+            empty: false
         }
     },
     async created(){
        const res = await axios.get(`https://blooming-thoughts.herokuapp.com/posts?title_contains=${this.$route.params.id}`)
-             this.results = res.data       
+            
+            if(typeof res.data !== 'undefined' && res.data.length > 0){
+                this.results = res.data
+                this.empty = false;
+            }else{             
+                this.empty = true
+            }
+                   
     }
    
 }
 </script>
 
 <style lang="scss">
+    .no-results{
+        height: 90vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 5rem;
+    }
     .category-id-page{
         display: flex;
         flex-direction: column;

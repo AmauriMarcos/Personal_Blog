@@ -14,7 +14,7 @@
         </ul>
         
         <TheSearchInput></TheSearchInput>
-
+     
         <img class="navbar__logo" src="../assets/logoT.svg" alt="">
     </div>
 </template>
@@ -40,6 +40,7 @@ export default {
      this.categories = res.data
 
   },
+
  
 }
 </script>

@@ -1,24 +1,27 @@
 <template>
     <form @submit.prevent="onSubmit" class="container">
-        <input id="search" type="text" placeholder="Search" v-model="text">
-        <button type="submit" class="search"></button>
+        <input id="search" type="text" placeholder="Search" v-model="text" autocomplete="off">
+        <button type="submit" class="search"></button>       
     </form>
 </template>
 
 <script>
+import axios from "axios";
 export default {
     data(){
         return{
             text: ''
         }
     },
+    
     methods: {
-      onSubmit(){
-          this.$root.$emit('search-text', this.text);      
-          this.text = '';
-          this.$router.push("/search")
-      }
-  }
+     onSubmit(){           
+        this.$router.push(`/search/${this.text}`)
+        this.text = ''                  
+    },
+
+  },
+  
 }
 </script>
 

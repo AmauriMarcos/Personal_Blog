@@ -2,7 +2,7 @@
   <div id="home">
     <app-carousel  class='carousel'></app-carousel>
     <div class='subtitle-home'>
-       <h2>Latest Posts</h2>
+       <h2 class="sub-titulo">Latest Posts</h2>
     </div>
     <div class="collection" >
         <div v-for="(post, i) in posts" :key='i'>
@@ -114,7 +114,7 @@ export default {
   }
 
   .collection{
-    padding: 2% 15% 3% 15%;
+    padding: 2% 15% 5% 15%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     column-gap: 1.5rem;

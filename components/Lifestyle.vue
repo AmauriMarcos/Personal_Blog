@@ -22,10 +22,11 @@
 </template>
 <script>
 export default {
-    props: ['image', 'titlte', 'id', 'date', 'author']
+    props: ['image', 'title', 'id', 'date', 'author']
 }
 </script>
 <style lang="scss">
+
 .wrap-link{
         text-decoration: none;     
     }

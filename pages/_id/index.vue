@@ -23,10 +23,10 @@
             </div>
             <div class="article__body corp">
                 <p v-html="content">{{content}}</p>
-            </div> 
-           
-            <Comments :id='article.id'></Comments>    
+            </div>   
+             
         </div>   
+         <Comments :id='article.id'></Comments>  
     </div>   
 </template>
 
@@ -81,6 +81,7 @@ export default {
     }
     .main{
         display: grid;
+
         margin: 1rem;
         background: #f4f7f6;
     }
@@ -88,10 +89,12 @@ export default {
         height: 40rem;
         widows: 100%;
         background: #83d1c4;
+        margin-right:3.15rem;
         grid-column: 1/-1;
         grid-row: 1/2;
         z-index: 1;
 /*         -webkit-clip-path: polygon(0 0, 100% 0, 100% 25vh, 0 100%); */
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 70vh);
         clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 70vh);
 }
     .article{
@@ -122,6 +125,7 @@ export default {
            /*  width: 95%; */
             margin: 7rem 0 3rem 0;
             color: #323232;
+           
 
             & h1{
                 font-family: 'Alfa Slab One', cursive;

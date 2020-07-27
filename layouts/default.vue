@@ -2,12 +2,15 @@
   <div>
     <TheNavbar></TheNavbar>
     <Nuxt />
+    <Footer></Footer>
   </div>
 </template>
 <script>
-import TheNavbar from "../components/TheNavbar"
+import TheNavbar from "../components/TheNavbar";
+import Footer from "../components/Footer";
 export default {
-   TheNavbar
+   TheNavbar,
+   Footer
 }
 </script>
 <style lang='scss' scoped>

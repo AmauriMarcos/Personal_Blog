@@ -28,6 +28,7 @@ export default {
 <style lang="scss">
 .wrap-link{
         text-decoration: none;     
+        
     }
     .card {
         height: 25rem;

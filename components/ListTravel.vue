@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="travel">
     <div class='subtitle-home'>
        <h2 class="sub-titulo">Travel</h2>
     </div>
@@ -45,4 +45,6 @@ export default {
         display: inline-block;
 
     }
+
+
 </style>

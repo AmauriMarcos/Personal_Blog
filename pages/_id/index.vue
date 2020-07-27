@@ -70,6 +70,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+    body{
+        background: #f4f7f6;
+    }
+    
     h4{
          background: linear-gradient(180deg, rgba(255,255,255,0)65%, #83d1c4 65%);
          display: inline;

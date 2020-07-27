@@ -264,9 +264,12 @@ export default {
                 &-title{
                     font-size: 1.7rem;
                     font-weight: 300;
+                    margin-bottom: 1rem;
+
                 }
 
                 &-input{
+                    
                     border: none;
                     border: 1px solid #ccc;
                     border-radius: 3px;

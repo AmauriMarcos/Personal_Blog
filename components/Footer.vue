@@ -138,7 +138,7 @@ export default {
                     containerClass: 'myContainer',
                     fitToScreen: true,
                     fullWidth: true,
-                    duration : 60000
+                    duration : 5000
                 });                        
             })
             .catch((err) => console.log(`Error: ${err}`));

@@ -55,11 +55,11 @@
                       netlify-honeypot="bot-field" 
                       class="form" 
                       method="post"  
-                      name="contact" 
+                      name="blooming-thoughts" 
                       @submit.prevent="handleSubmit"
                 >
 
-                    <input type="hidden" name="form-name" value="contact" />
+                    <input type="hidden" name="form-name" value="blooming-thoughts" />
 
                     <h3 class="footer__content-form-title">Send Us A Message</h3>
 

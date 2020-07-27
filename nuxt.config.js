@@ -41,6 +41,8 @@ export default {
   */
  plugins: [
   '@/plugins/disqus',
+ /*  {src: '~/plugins/vue-notification.js', ssr: false} */
+  
 ],
   /*
   ** Auto import components
@@ -57,8 +59,22 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    '@nuxtjs/toast',
   ],
+
+  toast: {
+    position: 'top-center',
+    register: [ // Register custom toasts
+      {
+        name: 'Thank you!',
+        message: 'The message was sent successfully',
+        options: {
+          type: 'success'
+        }
+      }
+    ]
+},
   markdownit: {
     preset: 'default',
     linkify: true,

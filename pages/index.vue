@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+     <notifications group="foo" position='top left' />
     <app-carousel  class='carousel'></app-carousel>
     <div class='subtitle-home'>
        <h2 class="sub-titulo">Latest Posts</h2>
@@ -67,6 +68,8 @@ export default {
     box-sizing: border-box;
   }
 
+  
+
   .view-all-link{
     text-decoration: none;
     background: linear-gradient(180deg, rgba(255,255,255,0)65%, #e7ab96 65%);
@@ -114,7 +117,7 @@ export default {
   }
 
   .collection{
-    padding: 2% 15% 5% 15%;
+    padding: 2% 15% 3% 15%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     column-gap: 1.5rem;

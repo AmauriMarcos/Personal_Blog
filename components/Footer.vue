@@ -1,6 +1,8 @@
 <template>
 <div>
+  
     <div class="footer">
+  
         <div class="footer__content">
             <div class="footer__content-contact-info">
                 
@@ -46,9 +48,10 @@
                 </div>
             </div>
 
-            
-            
+           
+
             <div class="footer__content-form">
+               
                 <form 
                       action="/" 
                       data-netlify="true"
@@ -64,10 +67,10 @@
                     <h3 class="footer__content-form-title">Send Us A Message</h3>
 
                     <label for="name"></label>
-                    <input type="text" id="name" v-model="form.name" name="name" placeholder="Name" class="footer__content-form-input"> 
+                    <input type="text" id="name" v-model="form.name" name="name" placeholder="Name" class="footer__content-form-input"  autocomplete="off"> 
 
                     <label for="email"></label>
-                    <input type="email" id="email" v-model="form.email" name="email" placeholder="Email" class="footer__content-form-input">
+                    <input type="email" id="email" v-model="form.email" name="email" placeholder="Email" class="footer__content-form-input"  autocomplete="off">
 
                     <label for="message"></label>
                     <textarea name="message" id="message" v-model="form.message"  placeholder="Message" class="footer__content-form-message"></textarea>
@@ -80,21 +83,16 @@
     
      <div class="colors">
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li></li> <li></li> <li></li><li></li><li></li><li></li><li></li><li></li>
         </ul>
     </div>
 </div>
     
 </template>
 <script>
+
 export default {
+  
     data(){
         return{
              form: {
@@ -111,6 +109,8 @@ export default {
             .join('&')
         },
         handleSubmit(){
+     
+
             fetch('/', {
                 method: 'post',
                 headers: {
@@ -120,14 +120,25 @@ export default {
                     'form-name': 'blooming-thoughts',
                     ...this.form
                 })
+                 
                 
             })
-            .then(() =>{                         
-                console.log(this.name);
-                console.log(this.email);
-                console.log(this.message);
-                console.log('Message sent!');    
-                             
+            .then(() =>{
+                  
+
+                this.$router.push({ path: '/' });
+                this.form.name= '';
+                this.form.email= '';
+                this.form.message = '';  
+                this.$toasted.success("Message sent successfully", { 
+                    theme: "toasted-primary", 
+                    position: "top-left", 
+                    className: 'myClass',
+                    containerClass: 'myContainer',
+                    fitToScreen: true,
+                    fullWidth: true,
+                    duration : 5000
+                });                        
             })
             .catch((err) => console.log(`Error: ${err}`));
             
@@ -136,7 +147,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+    .myClass{
+         font-family: 'Montserrat', sans-serif;  
+         font-weight: 700;
+         font-size: 1.3rem;
+         background-color: rgb(126, 209, 126);      
+    }
+
     .footer{    
         background-color: #424242;
         background-position: center;
@@ -155,6 +173,7 @@ export default {
             width: 100%;
             align-items: flex-start;
             justify-content: space-around;
+            outline: none;
 
             &-contact-info{
                 display: grid;
@@ -234,7 +253,7 @@ export default {
 
             &-form{
                 justify-self: flex-end;
-               
+                outline: none;
 
                 & form{
                
@@ -254,6 +273,7 @@ export default {
                     width: 21.25rem;
                     margin-top: .5rem;
                     background-color: white;
+                     outline: none;
                 }
 
                 ::placeholder{
@@ -269,6 +289,7 @@ export default {
                     height: 6.9rem;
                     margin-top: .5rem;
                     background-color: white;
+                     outline: none;
                 }
 
                 &-button{

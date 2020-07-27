@@ -108,6 +108,7 @@ export default {
             .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
             .join('&')
         },
+
         handleSubmit(){
      
 
@@ -124,9 +125,8 @@ export default {
                 
             })
             .then(() =>{
-                  
-
                 this.$router.push({ path: '/' });
+                window.scrollTo(0,0);
                 this.form.name= '';
                 this.form.email= '';
                 this.form.message = '';  

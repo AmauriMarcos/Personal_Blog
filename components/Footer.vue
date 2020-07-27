@@ -115,7 +115,7 @@ export default {
                     'Content-type': 'application/x-www-form-urlencoded'
                 },
                 body: this.encode({
-                    'form-name': 'contact',
+                    'form-name': 'blooming-thoughts',
                     ...this.form
                 })
                 

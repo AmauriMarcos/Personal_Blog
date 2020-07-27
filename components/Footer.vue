@@ -12,9 +12,10 @@
                     <p class="footer__content-contact-info-group-content-sub-title">Blooming Thoughts</p>
                     <p class="footer__content-contact-info-group-content-text">442, Bulevar, broj 8</p>
                     <p class="footer__content-contact-info-group-content-text">Brzi Brod, Nis</p>
+                    <p class="footer__content-contact-info-group-content-text"><span>Email:</span> blooming-thoughts@gmail.com</p>
                 </div>
                 
-                <p class="footer__content-contact-info-email"><span>Email:</span> blooming-thoughts@gmail.com</p>
+                
 
                  <h3 class="footer__content-contact-info-title-2">Follow Us</h3>
 
@@ -252,7 +253,7 @@ export default {
             }
 
             &-form{
-                justify-self: flex-end;
+              /*   justify-self: flex-end; */
                 outline: none;
 
                 & form{
@@ -270,7 +271,7 @@ export default {
                     border: 1px solid #ccc;
                     border-radius: 3px;
                     padding: .8rem 1.2rem;
-                    width: 21.25rem;
+                  /*   width: 21.25rem; */
                     margin-top: .5rem;
                     background-color: white;
                      outline: none;
@@ -285,7 +286,7 @@ export default {
                     border: 1px solid #ccc;
                     border-radius: 3px;
                     padding: .8rem 1.2rem;
-                    width: 21.25rem;
+                    /* width: 21.25rem; */
                     height: 6.9rem;
                     margin-top: .5rem;
                     background-color: white;
@@ -296,11 +297,12 @@ export default {
                     border: none;
                     padding: .7rem 1.2rem;
                     background-color: #F29678; 
-                    justify-self: center;
+                   /*  justify-self: center; */
                     margin-top: .5rem;
                     border-radius: 3px;
                     font-weight: 700;
                     color: #424242;  
+                    outline: none;
 
                     &:hover{
                         background-color: #e97b56;;

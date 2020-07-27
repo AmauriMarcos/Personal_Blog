@@ -63,7 +63,7 @@ export default {
     '@nuxtjs/toast',
   ],
 
-  toast: {
+ /*  toast: {
     position: 'top-center',
     register: [ // Register custom toasts
       {
@@ -74,7 +74,7 @@ export default {
         }
       }
     ]
-},
+}, */
   markdownit: {
     preset: 'default',
     linkify: true,

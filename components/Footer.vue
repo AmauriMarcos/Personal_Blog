@@ -131,14 +131,14 @@ export default {
                 this.form.name= '';
                 this.form.email= '';
                 this.form.message = '';  
-                this.$toasted.success("Message sent successfully", { 
+                this.$toasted.success("Message sent successfully!", { 
                     theme: "toasted-primary", 
                     position: "top-left", 
                     className: 'myClass',
                     containerClass: 'myContainer',
                     fitToScreen: true,
                     fullWidth: true,
-                    duration : 5000
+                    duration : 60000
                 });                        
             })
             .catch((err) => console.log(`Error: ${err}`));
@@ -152,8 +152,23 @@ export default {
     .myClass{
          font-family: 'Montserrat', sans-serif;  
          font-weight: 700;
-         font-size: 1.3rem;
-         background-color: rgb(126, 209, 126);      
+         height: 5rem;
+         font-size: 4rem;
+         background-color: rgb(63, 192, 63);     
+    }
+
+    .toasted-container.full-width.fit-to-screen .toasted:first-child{
+        padding: 1.5rem 1.7rem !important;
+         background-color: rgb(63, 192, 63);  
+        border-left: .7rem solid rgb(61, 175, 16);
+        font-size: 1.5rem;
+        color: rgb(9, 80, 9);
+        font-family: 'Montserrat', sans-serif;  
+         font-weight: 700;
+    }
+
+    .myContainer{
+        font-size: 2rem;
     }
 
     .footer{    

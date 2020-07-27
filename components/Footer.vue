@@ -161,7 +161,7 @@ export default {
         
     }
 
-    .toasted-container.full-width.fit-to-screen .toasted:first-child::before{
+   /*  .toasted-container.full-width.fit-to-screen .toasted:first-child::before{
         position: absolute;
         left: -.1rem;
         top: 30%;
@@ -188,7 +188,7 @@ export default {
         transform: translateX(25rem) rotate(-45deg);
         transform-origin: left bottom;
         margin-right: 3rem !important;
-    }
+    } */
 
     .myContainer{
         font-size: 2rem;

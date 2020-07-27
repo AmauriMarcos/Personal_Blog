@@ -49,19 +49,30 @@
             
             
             <div class="footer__content-form">
-                <form action="">
+                <form 
+                      action="/" 
+                      data-netlify="true"
+                      netlify-honeypot="bot-field" 
+                      class="form" 
+                      method="post"  
+                      name="contact" 
+                      @submit.prevent="handleSubmit"
+                >
+
+                    <input type="hidden" name="form-name" value="contact" />
+
                     <h3 class="footer__content-form-title">Send Us A Message</h3>
 
                     <label for="name"></label>
-                    <input type="text" id="name" name="name" placeholder="Name" class="footer__content-form-input"> 
+                    <input type="text" id="name" v-model="name" name="name" placeholder="Name" class="footer__content-form-input"> 
 
                     <label for="email"></label>
-                    <input type="email" id="email" name="email" placeholder="Email" class="footer__content-form-input">
+                    <input type="email" id="email" v-model="email" name="email" placeholder="Email" class="footer__content-form-input">
 
                     <label for="message"></label>
-                    <textarea name="message" id="message"  placeholder="Message" class="footer__content-form-message"></textarea>
+                    <textarea name="message" id="message" v-model="message"  placeholder="Message" class="footer__content-form-message"></textarea>
                     
-                    <button class="footer__content-form-button">Send Message</button>
+                    <button type="submit" class="footer__content-form-button">Send Message</button>
                 </form>              
             </div>
         </div>      
@@ -84,7 +95,41 @@
 </template>
 <script>
 export default {
-    
+    data(){
+        return{
+            name: '',
+            email: '',
+            message: ''
+        }
+    },
+    methods:{
+        encode(data){
+            return Object.keys(data)
+            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+            .join('&')
+        },
+        handleSubmit(){
+            fetch('/', {
+                method: 'post',
+                headers: {
+                    'Content-type': 'application/x-www-form-urlencoded'
+                },
+                body: this.encode({
+                    'form-name': 'contact',
+                    ...this.form
+                })
+                
+            })
+            .then(() =>{                         
+                console.log(this.name);
+                console.log(this.email);
+                console.log(this.message);
+                console.log('Message sent!');                 
+            })
+            .catch((err) => console.log(`Error: ${err}`));
+            
+        }
+    }
 }
 </script>
 

@@ -29,6 +29,7 @@ export default {
         
         link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap" }],
          link: [{rel: 'stylesheet'}, {href:"https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700;800;900&display=swap" }],
+         link: [{rel: 'stylesheet'}, {href: "https://fonts.googleapis.com/css2?family=B612:wght@700&family=Ubuntu:wght@700&display=swap"}]
     }
 }
 </script>
@@ -83,7 +84,8 @@ export default {
         &__title{
             grid-column: 1/-1;
             grid-row: 2/3;
-            font-family: 'Abril Fatface', cursive;
+             font-family: 'Abril Fatface', cursive;
+          /*   font-weight: 700; */
             color: #323232;
             width: 95%;
             font-size: 2rem;

@@ -9,25 +9,82 @@
             <p>Let your thoughts bloom and your dreams blossom...</p>
             
         </div>
-        <form @submit.prevent='sendNews' class="newsletter__form" >
-            <input type="email" placeholder="E-mail" class="newsletter__form-input">
-            <button class="newsletter__form-button">Subscribe</button>
+        <form @submit.prevent='submitNewsletter' class="newsletter__form" >
+            <input type="email" placeholder="E-mail" class="newsletter__form-input" v-model="email">
+            <button class="newsletter__form-button" type="submit">Subscribe</button>
         </form>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data(){
         return{
-
+            email: ''
         }
     },
     methods:{
-        sendNews(){
+        submitNewsletter(){
+          /*   axios.post('http://localhost:3000/api', {
+                email: this.email
+            })
+            .then(function (response) {
+                console.log(response);
+            }).
+            catch((error) =>{
+                console.log('The error:' + error)
+            }) */
+
             
+            this.$toasted.success("Thank you for your subscription !!!", { 
+                theme: "toasted-primary", 
+                position: "top-left", 
+                containerClass: 'myContainer',
+                fitToScreen: true,
+                fullWidth: true,
+                duration : 5000
+            });  
+
+            const data = {
+                members: [
+                    {
+                        email_address: this.email,
+                        status: 'subscribed'
+                    }
+                ]
+            }   
+
+
+            const jsonData = JSON.stringify(data);
+        
+            const url = `https://us20.api.mailchimp.com/3.0/lists/${process.env.AUDIENCE_ID}`;
+
+            const options = {
+                method: "POST",
+                'Content-Type': 'application/json',
+                auth: `blooming:${process.env.MAILCHIMPS_API_KEY}`
+            }
+
+            axios.post(url, options).then((res) =>{
+                console.log(JSON.parse(res.data))
+            }).catch((error)=>{
+                console.log(error)
+            })
+
+           /*  const request = this.https.request(url, options, function(response) {
+                response.on("data", function(data){
+                    console.log(JSON.parse(data));
+                })
+            })
+
+            request.write(jsonData);
+            request.end(); */
+
+            /* this.email = '' */
         }
     }
+
 }
 </script>
 
@@ -91,12 +148,13 @@ export default {
             &-input{
                 height: 2.875rem;
                 border-radius: 2px;
-                font-size: 14px;
+                font-size: 1rem;
                 color: #b1b1b1;
                 line-height: 20px;
                 letter-spacing: .1em;
-                padding: 5px 133px 0 0;
+                padding: 5px 0 0 0;
                 text-indent: 16px;
+                font-family: 'Montserrat', sans-serif;
               
                 background-color: #fff;
                 width: 100%;
@@ -112,14 +170,20 @@ export default {
                 padding: 0 14px 0 15px;
                 color: #000000;
                 text-transform: uppercase;
+                font-size: .8rem;
+                outline: none;
                 border-radius: 2px;
                 border-bottom-left-radius: 0;
                 border-top-left-radius: 0;
                 text-align: center;
-                width: 100%;
+                width: 50%;
                 background-color: #EE7B54;
                 font-weight: 600;
                 font-family: 'Montserrat', sans-serif;
+
+                &:hover{
+                    background-color: #f06334;
+                }
 
             }
         }

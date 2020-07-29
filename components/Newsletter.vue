@@ -25,8 +25,9 @@ export default {
         }
     },
     methods:{
+
         submitNewsletter(){
-            axios.post('/api/subscribe', {
+            axios.post('http://localhost:8888/.netlify/functions/subscribe', {
                 email: this.email
             })
             .then(function (response) {

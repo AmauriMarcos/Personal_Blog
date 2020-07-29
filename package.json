@@ -7,7 +7,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "export": "nuxt export",
-    "serve": "nuxt serve"
+    "serve": "nuxt serve",
+    "postinstall": "netlify-lambda install"
   },
   "dependencies": {
     "@nuxtjs/markdownit": "^1.2.10",
@@ -20,6 +21,7 @@
     "mailchimp-api-v3": "^1.14.0",
     "markdown-it-attrs": "^3.0.3",
     "markdown-it-highlightjs": "^3.2.0",
+    "netlify-lambda": "^2.0.1",
     "nuxt": "^2.13.0",
     "vue-disqus": "^4.0.1"
   },

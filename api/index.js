@@ -1,58 +1,46 @@
-/* const express    = require('express');
+const express    = require('express');
 const bodyParser = require('body-parser');
 const cors       = require('cors');
 const axios      = require('axios');
+import Mailchimp from 'mailchimp-api-v3';
+
+const apiKey = process.env.MAILCHIMPS_API_KEY;
+const audienceId = process.env.AUDIENCE_ID;
+const mailchimp = new Mailchimp(apiKey);
 
 require('dotenv').config();
 
 const app = express();
 
 app.use(cors());
+app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.get('/', (req, res) =>{
-    res.send("hello world");
+app.get("/subscribe",  (req, res) => {
+    res.send("Subscribe Page");
 });
 
-app.post("/", function (req, res) {
-  
-    const data = {
-        members: [
-            {
-                email_address: req.body.email,
-                status: 'subscribed',
-                merge_fields: {
-                    EMAIL: req.body.email
-                }
-            }
-        ]
-    }   
-
-
-    const jsonData = JSON.stringify(data);
-   
-    const url = `https://us20.api.mailchimp.com/3.0/lists/${process.env.AUDIENCE_ID}`;
-
-    const options = {
-        method: "POST",
-        auth: `blooming:${process.env.MAILCHIMPS_API_KEY}`
-    }
-
-    const request = https.request(url, options, function(response) {
-        response.on("data", function(data){
-            console.log(JSON.parse(data));
+app.post('/subscribe', async(req, res) => {
+    const {email: email_address} = req.body
+      try{
+        const response = await mailchimp.request({
+          method: 'post',
+          path: `/lists/${audienceId}/members`,
+          body: {
+            email_address,
+            status: "subscribed"
+          }
         })
-    })
-
-    request.write(jsonData);
-    request.end(); */
-
-  /*   --data '{"name":"Freddie'\''s Favorite Hats","contact":{"company":"Mailchimp","address1":"675 Ponce De Leon Ave NE","address2":"Suite 5000","city":"Atlanta","state":"GA","zip":"30308","country":"US","phone":""},"permission_reminder":"You'\''re receiving this email because you signed up for updates about Freddie'\''s newest hats.","campaign_defaults":{"from_name":"Freddie","from_email":"freddie@freddiehats.com","subject":"","language":"en"},"email_type_option":true}' */
-/* });
+        const { _links, ...result } = response
+        res.status(result.statusCode).json(result)
+      }catch(err){
+        res.status(err.status).send(err.detail)
+      }
+  });
 
 module.exports = {
-    path: '/api/',
+    path: '/api',
     handler: app
-}; */
+};

@@ -26,7 +26,7 @@ export default {
     },
     methods:{
         submitNewsletter(){
-          /*   axios.post('http://localhost:3000/api', {
+            axios.post('/api/subscribe', {
                 email: this.email
             })
             .then(function (response) {
@@ -34,8 +34,7 @@ export default {
             }).
             catch((error) =>{
                 console.log('The error:' + error)
-            }) */
-
+            })
             
             this.$toasted.success("Thank you for your subscription !!!", { 
                 theme: "toasted-primary", 
@@ -45,43 +44,7 @@ export default {
                 fullWidth: true,
                 duration : 5000
             });  
-
-            const data = {
-                members: [
-                    {
-                        email_address: this.email,
-                        status: 'subscribed'
-                    }
-                ]
-            }   
-
-
-            const jsonData = JSON.stringify(data);
         
-            const url = `https://us20.api.mailchimp.com/3.0/lists/${process.env.AUDIENCE_ID}`;
-
-            const options = {
-                method: "POST",
-                'Content-Type': 'application/json',
-                auth: `blooming:${process.env.MAILCHIMPS_API_KEY}`
-            }
-
-            axios.post(url, options).then((res) =>{
-                console.log(JSON.parse(res.data))
-            }).catch((error)=>{
-                console.log(error)
-            })
-
-           /*  const request = this.https.request(url, options, function(response) {
-                response.on("data", function(data){
-                    console.log(JSON.parse(data));
-                })
-            })
-
-            request.write(jsonData);
-            request.end(); */
-
-            /* this.email = '' */
         }
     }
 

@@ -32,7 +32,7 @@ export default {
 
     ]
   },
-  serverMiddleware: ["~/api/index"],
+/*   serverMiddleware: ["~/api/index"], */
   /*
   ** Global CSS
   */

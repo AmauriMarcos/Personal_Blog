@@ -25,10 +25,14 @@ export default {
         }
     },
     methods:{
-
+        
         submitNewsletter(){
-            axios.post('http://localhost:8888/.netlify/functions/subscribe', {
-                email: this.email
+            
+            console.log(JSON.stringify(`email: this.email`));
+            axios.post('http://localhost:8888/.netlify/functions/subscribe', { email: this.email}, {
+                headers: {
+                    'Content-Type':'application/json'
+                }
             })
             .then(function (response) {
                 console.log(response);

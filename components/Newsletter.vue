@@ -28,7 +28,7 @@ export default {
         
         submitNewsletter(){
             
-            axios.post('http://localhost:53784/.netlify/functions/subscribe', { email: this.email}, {
+            axios.post('http://localhost:3000/api/subscribe', { email: this.email}, {
                 headers: {
                     methods: 'POST',
                     'Content-Type':'application/json'

@@ -1,4 +1,4 @@
-/* const express    = require('express');
+const express    = require('express');
 const bodyParser = require('body-parser');
 const cors       = require('cors');
 const axios      = require('axios');
@@ -43,4 +43,4 @@ app.post('/subscribe', async(req, res) => {
 module.exports = {
     path: '/api',
     handler: app
-}; */
+};

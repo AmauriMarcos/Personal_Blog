@@ -1,5 +1,7 @@
 const fetch = require('node-fetch'); 
 const base64 = require('base-64'); 
+
+
 exports.handler = async (event, context) => { 
   // Only allow POST
   if (event.httpMethod !== 'POST') { 
@@ -10,6 +12,7 @@ exports.handler = async (event, context) => {
   }; 
   try { 
     const { email } = JSON.parse(event.body);
+    console.log(email);
     if (!email) { 
       return errorGen('Missing Email');
     } 
@@ -17,6 +20,10 @@ exports.handler = async (event, context) => {
       email_address: email, 
       status: 'subscribed', 
     }; 
+
+    console.log(subscriber);
+    console.log(JSON.stringify(subscriber));
+
     const creds = `blooming-thoughts:${process.env.MAILCHIMPS_API_KEY}`;
     const response = await fetch(`https://us20.api.mailchimp.com/3.0/lists/${process.env.AUDIENCE_ID}/members/`, { 
       method: 'POST', 
@@ -25,6 +32,7 @@ exports.handler = async (event, context) => {
         'Content-Type': 'application/json', 
         Authorization: `Basic ${base64.encode(creds)}`, }, 
       body: JSON.stringify(subscriber), 
+     
     }); 
     const data = await response.json();
     

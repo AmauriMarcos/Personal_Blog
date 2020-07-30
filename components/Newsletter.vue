@@ -26,21 +26,15 @@ export default {
     },
     methods:{
         
-        submitNewsletter(){
-            
-            axios.post('http://localhost:3000/api/subscribe', { email: this.email}, {
-                headers: {
-                    methods: 'POST',
-                    'Content-Type':'application/json'
-                }
-            })
-            .then(function (response) {
-                console.log(response);
-            }).
-            catch((error) =>{
-                console.log('The error:' + error)
-            })
-            
+            submitNewsletter(){
+            axios.post("https://jolly-heyrovsky-2d6338.netlify.app/.netlify/functions/index", {email: this.email},
+                { headers : {
+                    "Content-Type": "application/json"
+                }}
+            ).then((res) =>{
+                console.log(res.status)
+            }).catch(error => {console.log(error)})
+
             this.$toasted.success("Thank you for your subscription !!!", { 
                 theme: "toasted-primary", 
                 position: "top-left", 
@@ -48,9 +42,10 @@ export default {
                 fitToScreen: true,
                 fullWidth: true,
                 duration : 5000
-            });  
+            }) 
         
-        }
+        }         
+        
     }
 
 }

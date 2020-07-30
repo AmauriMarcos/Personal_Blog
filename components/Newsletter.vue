@@ -26,7 +26,7 @@ export default {
     },
     methods:{
         
-            submitNewsletter(){
+        submitNewsletter(){
             axios.post("https://jolly-heyrovsky-2d6338.netlify.app/.netlify/functions/index", {email: this.email},
                 { headers : {
                     "Content-Type": "application/json"
@@ -35,14 +35,16 @@ export default {
                 console.log(res.status)
             }).catch(error => {console.log(error)})
 
-           /*  this.$toasted.success("Thank you for your subscription !!!", { 
+            this.$toasted.success("Thank you for your subscription !!!", { 
                 theme: "toasted-primary", 
                 position: "top-left", 
                 containerClass: 'myContainer',
                 fitToScreen: true,
                 fullWidth: true,
                 duration : 5000
-            })  */
+            }) 
+
+            this.email = ''
         
         }         
         

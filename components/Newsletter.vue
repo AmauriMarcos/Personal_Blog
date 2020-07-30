@@ -35,14 +35,14 @@ export default {
                 console.log(res.status)
             }).catch(error => {console.log(error)})
 
-            this.$toasted.success("Thank you for your subscription !!!", { 
+           /*  this.$toasted.success("Thank you for your subscription !!!", { 
                 theme: "toasted-primary", 
                 position: "top-left", 
                 containerClass: 'myContainer',
                 fitToScreen: true,
                 fullWidth: true,
                 duration : 5000
-            }) 
+            })  */
         
         }         
         

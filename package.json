@@ -8,7 +8,9 @@
     "start": "nuxt start",
     "export": "nuxt export",
     "serve": "nuxt serve",
-    "postinstall": "netlify-lambda install"
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build:lambda": "netlify-lambda build src/lambda"
+
   },
   "dependencies": {
     "@nuxtjs/markdownit": "^1.2.10",

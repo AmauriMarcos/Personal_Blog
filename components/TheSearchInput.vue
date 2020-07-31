@@ -1,8 +1,10 @@
 <template>
-    <form @submit.prevent="onSubmit" class="container">
+  <div id="search-form">
+    <form @submit.prevent="onSubmit" class="form-search-box">
         <input id="search" type="text" placeholder="Search" v-model="text" autocomplete="off">
         <button type="submit" class="search"></button>       
     </form>
+  </div>   
 </template>
 
 <script>
@@ -26,8 +28,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .container {
-      position: absolute;
+
+       @mixin respond($breakpoint){
+        @if $breakpoint == phone {
+            @media only screen and (max-width: 37.5em){ @content }; //600px
+        }
+
+        @if $breakpoint == tab-port {
+            @media only screen and (max-width: 62.5em){ @content }; //1000px
+        }
+
+        @if $breakpoint == tab-land {
+            @media only screen and (max-width: 75em){ @content }; //1200px
+        }
+
+        @if $breakpoint == laptop {
+            @media only screen and (max-width: 90em) {@content}; //1440px
+        }
+
+        @if $breakpoint == big-desktop {
+            @media only screen and (min-width: 112.5em){ @content }; // + 1800px
+        }
+    }
+
+  
+    .form-search-box {
       margin: auto;
       top: 0;
       left: 0;
@@ -35,13 +60,15 @@ export default {
       bottom: 0;
       width: 300px;
       height: 100px;
-      transform: translateX(15rem);
+      transform: translateX(-5rem);     
+
     .search {
         position: absolute;
         margin: auto;
         top: 0;
         right: 0;
         bottom: 0;
+        outline: none;
         left: 0;
         width: 40px;
         height: 40px;

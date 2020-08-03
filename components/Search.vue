@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss">
 
-    @mixin respond($breakpoint){
+@mixin respond($breakpoint){
         @if $breakpoint == phone {
             @media only screen and (max-width: 37.5em){ @content }; //600px
         }

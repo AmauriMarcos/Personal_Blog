@@ -1,10 +1,16 @@
 <template>
     <div class="nav-container">
+
         <nav class="nav">
+             
             <div class="menu" @click="changeClass()">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
+            </div>
+
+            <div class="burger burger-arrow open">
+                <div class="burger-lines"></div>
             </div>
 
             <ul  :class="{ open: isActive }">
@@ -22,8 +28,10 @@
 </template>
 
 <script>
+
 import axios from "axios";
 export default {
+    
     data(){
         return{
             categories: [],      
@@ -70,6 +78,7 @@ export default {
         }
     }
 
+
     .nav-container{
         height: 6rem;
         width: 100%;
@@ -89,7 +98,7 @@ export default {
     .menu {
         display: inline-block;
         position: absolute;
-        width: 30px;
+        width: 40px;
         top: 50%;
         left: 85%;
         transform: translate(-50%, 200%);
@@ -101,31 +110,7 @@ export default {
         z-index: 600;
     }
 
-    .menu::before,
-    .menu::after {
-        position: absolute;
-        transition: 0.4s ease;
-        opacity: 0;
-        pointer-events: none;
-    }
-    .menu:before {
-        content: "M \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 U";
-        top: -60px;
-        left: -90%;
-        width: 215px;
-    }
-    .menu:after {
-        content: "N";
-        top: 50px;
-        left: 110%;
-    }
-    .menu:hover::before,
-    .menu:hover::after {
-        top: -7px;
-        opacity: 1;
-        transition: 0.2s ease, opacity 0.17s 0.03s ease-in;
-    }
-
+   
     .bar {
         width: 80%;
         height: 3px;
@@ -159,7 +144,7 @@ export default {
             height: 100vh;      
             width: 100%;   
             flex-direction: column;     
-            clip-path: circle(100px at 90% -15%);
+            clip-path: circle(100px at 90% -35%);
             transition: all 1s ease-out;  
                   
         }
@@ -202,10 +187,13 @@ export default {
     }
 
     .open{
-        clip-path: circle(1300px at 90% -15%);
+        clip-path: circle(1300px at 90% -35%);
     }
 
     .close{
-         clip-path: circle(100px at 90% -15%);
+         clip-path: circle(100px at 90% -35%);
     }
+
+
+    
 </style>

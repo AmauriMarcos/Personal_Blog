@@ -190,7 +190,8 @@ export default {
         padding: 5% 15%;
 
         @include respond(tab-port){
-            row-gap: 3rem;   
+            row-gap: 3rem; 
+            column-gap: 2rem;  
             padding: 7% 15%;           
         }
 
@@ -287,7 +288,8 @@ export default {
 
                             @include respond(phone){
                                 width: 25px;
-                                height: 25px;         
+                                height: 25px;
+                                margin-right: .5rem;         
                             }
                         }
                     }
@@ -355,6 +357,7 @@ export default {
                 background-color: #F29678; 
                 /*  justify-self: center; */
                 margin-top: .5rem;
+                font-family: 'Montserrat', sans-serif; 
                 border-radius: 3px;
                 font-weight: 700;
                 color: #424242;  

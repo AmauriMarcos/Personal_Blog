@@ -2,8 +2,9 @@
     <div class="main">
       
         <div class="theBackground">
-
+            
         </div>
+      
         <div class="article">
            
             <div class="article__title corp">
@@ -72,6 +73,32 @@ export default {
 
 <style lang="scss">
 
+@mixin respond($breakpoint){
+        @if $breakpoint == phone {
+            @media only screen and (max-width: 48.125em){ @content }; //770px
+        }
+
+         @if $breakpoint == pre-phone {
+            @media only screen and (max-width: 56.25em){ @content }; //900px
+        }
+
+        @if $breakpoint == tab-port {
+            @media only screen and (max-width: 62.5em){ @content }; //1000px
+        }
+
+        @if $breakpoint == tab-land {
+            @media only screen and (max-width: 75em){ @content }; //1200px
+        }
+
+        @if $breakpoint == laptop {
+            @media only screen and (max-width: 90em) {@content}; //1440px
+        }
+
+        @if $breakpoint == big-desktop {
+            @media only screen and (min-width: 112.5em){ @content }; // + 1800px
+        }
+    }
+
     body{
         background: #f4f7f6;
     }
@@ -90,19 +117,30 @@ export default {
 
         margin: 1rem;
         background: #f4f7f6;
+
+         @include respond(pre-phone){
+            margin: 0;           
+        }
     }
     .theBackground{
         height: 40rem;
-        widows: 100%;
+        width: 100%;
         background: #83d1c4;
         margin-right:3.15rem;
         grid-column: 1/-1;
         grid-row: 1/2;
         z-index: 1;
-/*         -webkit-clip-path: polygon(0 0, 100% 0, 100% 25vh, 0 100%); */
+        /* -webkit-clip-path: polygon(0 0, 100% 0, 100% 25vh, 0 100%); */
         clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 70vh);
         clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 70vh);
-}
+
+         @include respond(pre-phone){
+            margin-right: 0;
+            clip-path: polygon(0 0, 100% 0, 100% 65vh, 0 70vh);  
+        }
+
+        
+    }
     .article{
         display: flex;
         flex-direction: column;
@@ -113,17 +151,40 @@ export default {
         grid-row: 1/2;
         z-index: 10;
         padding: 3% 10%;
+
+        @include respond(tab-land){
+            padding: 0;
+        }
         
 
         &__image{
             height: 30rem;
             width: 55rem;
-           
+             margin: 0 auto;
+
+             @include respond(tab-land){
+                height: 25rem;
+                width: 50rem;
+             }
+
+             @include respond(tab-port){
+                height: 20rem;
+                width: 45rem;
+               
+            }
+
+            @include respond(pre-phone){
+                height: 20rem;
+                width: 100vw;
+              
+            }
+       
 
             img{
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
+                
             }
         }
 
@@ -140,6 +201,19 @@ export default {
                 letter-spacing: .3rem;
                /*  font-weight: 700; */
                 font-size: 4.4rem;
+
+                @include respond(tab-land){
+                     font-size: 4rem;
+                }
+
+                 @include respond(pre-phone){
+                    font-size: 3.3rem;             
+                 }
+
+                  @include respond(phone){
+                    font-size: 2.7rem;     
+                    margin-top: 2rem;        
+                 }
             }
         }
 

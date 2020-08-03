@@ -62,13 +62,33 @@ export default {
 </script>
 
 <style lang='scss'>
+
+@mixin respond($breakpoint){
+        @if $breakpoint == phone {
+            @media only screen and (max-width: 37.5em){ @content }; //600px
+        }
+
+        @if $breakpoint == tab-port {
+            @media only screen and (max-width: 56.25em){ @content }; //900px
+        }
+
+        @if $breakpoint == tab-land {
+            @media only screen and (max-width: 75em){ @content }; //1200px
+        }
+
+        @if $breakpoint == laptop {
+            @media only screen and (max-width: 90em) {@content}; //1440px
+        }
+
+        @if $breakpoint == big-desktop {
+            @media only screen and (min-width: 112.5em){ @content }; // + 1800px
+        }
+    }
   *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-
-  
 
   .view-all-link{
     text-decoration: none;
@@ -96,6 +116,11 @@ export default {
     font-size: 1.4rem;
     z-index: 100;
     text-align: center;
+
+    @include respond(phone){
+      font-size: 1.2rem;     
+      padding: 5% 0;          
+    }
 
   }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="travel">
     <div class='subtitle-home'>
-       <h2 class="sub-titulo">Travel</h2>
+       <h2 class="sub-titulo sub-travel">Travel</h2>
     </div>
     <div class="collection" >
         <div v-for="(travel, i) in travels" :key='i'>
@@ -40,10 +40,37 @@ export default {
 }
 </script>
 <style lang="scss">
+
+@mixin respond($breakpoint){
+        @if $breakpoint == phone {
+            @media only screen and (max-width: 37.5em){ @content }; //600px
+        }
+
+        @if $breakpoint == tab-port {
+            @media only screen and (max-width: 62.5em){ @content }; //1000px
+        }
+
+        @if $breakpoint == tab-land {
+            @media only screen and (max-width: 75em){ @content }; //1200px
+        }
+
+        @if $breakpoint == laptop {
+            @media only screen and (max-width: 90em) {@content}; //1440px
+        }
+
+        @if $breakpoint == big-desktop {
+            @media only screen and (min-width: 112.5em){ @content }; // + 1800px
+        }
+    }
     .sub-titulo{
         background: linear-gradient(180deg, rgba(255,255,255,0)65%, #83d1c4 65%);
         display: inline-block;
+    }
 
+    .travel{
+        @include respond(phone){
+            margin-top: 3.5rem;
+        }
     }
 
 

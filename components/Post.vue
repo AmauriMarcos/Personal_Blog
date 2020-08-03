@@ -35,6 +35,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@mixin respond($breakpoint){
+        @if $breakpoint == phone {
+            @media only screen and (max-width: 37.5em){ @content }; //600px
+        }
+
+        @if $breakpoint == tab-port {
+            @media only screen and (max-width: 62.5em){ @content }; //1000px
+        }
+
+        @if $breakpoint == tab-land {
+            @media only screen and (max-width: 75em){ @content }; //1200px
+        }
+
+        @if $breakpoint == laptop {
+            @media only screen and (max-width: 90em) {@content}; //1440px
+        }
+
+        @if $breakpoint == big-desktop {
+            @media only screen and (min-width: 112.5em){ @content }; // + 1800px
+        }
+    }
     
     .wrap-link{
         text-decoration: none;     
@@ -53,6 +75,10 @@ export default {
             z-index: 1;
             width: 100%;
             height: 16.875rem;
+
+            @include respond(phone){
+                 height: 15rem;
+            }
 
             &-img{
                 width: 100%;
@@ -78,6 +104,10 @@ export default {
                 font-family: 'Poppins', sans-serif;
                 color: #323232;
                 font-weight: 700;
+
+                @include respond(phone){
+                  font-size: .9rem;
+                }
             }
         }
 
@@ -90,6 +120,10 @@ export default {
             width: 95%;
             font-size: 2rem;
             line-height: 1.3;
+
+            @include respond(phone){
+                font-size: 1.7rem;
+            }
 
             &-link{
                 text-decoration: none;

@@ -15,7 +15,8 @@
                   <div class="call">
                     <h1 class="call__title">{{posts[i].title}}</h1>
                     <div class="call__box">
-                      <p class="call__box-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque dignissimos nesciunt delectus. Cumque veniam labore rerum commodi perspiciatis. Dignissimos voluptates, atque modi accusamus placeat beatae eveniet animi minima! Eius, repudiandae!</p>
+                      <p class="call__box-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque dignissimos nesciunt delectus. Cumque veniam labore rerum commodi perspiciatis.</p>
+                       <p class="call__box-description-mobile">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
                     </div>                  
                   </div>
                 </nuxt-link>                  
@@ -51,6 +52,28 @@ export default {
 </script>
 
 <style lang='scss'>
+@mixin respond($breakpoint){
+        @if $breakpoint == phone {
+            @media only screen and (max-width: 37.5em){ @content }; //600px
+        }
+
+        @if $breakpoint == tab-port {
+            @media only screen and (max-width: 56.25em){ @content }; //900px
+        }
+
+        @if $breakpoint == tab-land {
+            @media only screen and (max-width: 75em){ @content }; //1200px
+        }
+
+        @if $breakpoint == laptop {
+            @media only screen and (max-width: 90em) {@content}; //1440px
+        }
+
+        @if $breakpoint == big-desktop {
+            @media only screen and (min-width: 112.5em){ @content }; // + 1800px
+        }
+    }
+
   *{
     margin: 0;
     padding: 0;
@@ -98,6 +121,19 @@ export default {
     font-weight: 800;
     font-size: 5rem;
     line-height: 1;
+
+     @include respond(tab-land){
+          font-size: 4rem;               
+      }
+
+      @include respond(tab-port){
+          transform: translateY(2rem);  
+         font-size: 3.7rem;            
+      }
+
+      @include respond(phone){ 
+         font-size: 3.4rem;            
+      }
   }
 
   &__box{
@@ -107,9 +143,39 @@ export default {
      padding: 2rem;
      transform: translateY(4rem);
 
+      @include respond(tab-land){
+          padding: 1.5rem;               
+      }
+
+      @include respond(tab-port){
+        transform: translateY(5rem);  
+        font-size: .9rem;            
+      }
+
+      @include respond(phone){
+         font-size: .7rem;     
+         padding: 1rem 1.5rem;     
+          
+      }
+
     &-description{
        font-family: 'Montserrat', sans-serif;
        font-size: 1rem;
+
+       @include respond(phone){
+         display: none; 
+      } 
+    }
+
+     &-description-mobile{
+       display: none;
+       font-family: 'Montserrat', sans-serif;
+       font-size: 1rem;
+
+       @include respond(phone){
+         display: block; 
+         font-size: .8rem;
+      }
     }
 
   }

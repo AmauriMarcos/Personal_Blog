@@ -3,8 +3,6 @@
     <div id="app">
       <v-app id="inspire" >
         <v-carousel style="height: 90vh" cycle>
-            /posts
-             
                 <v-carousel-item
                   v-for="(post,i) in posts"
                   :key="i"

@@ -82,6 +82,11 @@ export default {
           
       }
 
+      @include respond(tab-port){
+          display: none;    
+          opacity: 0;
+      }
+
       &__brand-title{
           grid-column: 1/2;
           grid-row: 1/2;

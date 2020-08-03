@@ -1,6 +1,7 @@
 <template>
     <div class="nav-container">
-
+        <nuxt-link tag='p' to='/' class="nav-container__title"><span class="blooming">Blooming<br></span> Thoughts</nuxt-link>
+        <img class="nav-search" src="../assets/search-blog.svg" alt="">
         <nav class="nav">
              
             <div class="menu" @click="changeClass()">
@@ -78,7 +79,13 @@ export default {
         }
     }
 
-
+    .nav-search{
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 2rem;
+        right: 8rem;
+    }
     .nav-container{
         height: 6rem;
         width: 100%;
@@ -88,9 +95,25 @@ export default {
         left: 0;      
         background-color: white; 
         z-index: 500;
+        overflow: hidden;
 
         @include respond(tab-port){
             display: block;
+        }
+
+        &__title{
+            font-size: 1.6rem;
+            font-family: 'Abril Fatface', cursive;
+            cursor: pointer;
+            color: #82D0C3;
+            position: absolute;
+            top: .9rem;
+            left: 2rem;
+
+            & .blooming{
+                color: #ee7b54;
+                margin-right: .5rem;
+          }
         }
 
     }
@@ -98,10 +121,10 @@ export default {
     .menu {
         display: inline-block;
         position: absolute;
-        width: 40px;
-        top: 50%;
-        left: 85%;
-        transform: translate(-50%, 200%);
+        width: 45px;
+        top: 2.3rem;
+        right: 3rem;
+/*         transform: translate(-50%, 150%); */
         font-size: 26px;
         font-family: 'Montserrat', sans-serif; 
         font-weight: 700;
@@ -113,9 +136,9 @@ export default {
    
     .bar {
         width: 80%;
-        height: 3px;
+        height: 4px;
         background: #ee7b54;
-        margin: 0 auto 4.5px;
+        margin: 0 auto 7px;
         transition: transform 0.4s ease;
     }
 
@@ -145,7 +168,7 @@ export default {
             width: 100%;   
             flex-direction: column;     
             clip-path: circle(100px at 90% -35%);
-            transition: all 1s ease-out;  
+            transition: all .3s ease-out;  
                   
         }
     }
@@ -173,7 +196,7 @@ export default {
             text-transform: uppercase;
             background: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
             background-size: 225%;
-            transition: all .4s;         
+            transition: all .3s;         
         }
 
         &:hover,
@@ -181,7 +204,6 @@ export default {
             background-position: 100%;
             color: #ee7b54;
             transform: translateX(.625rem);
-            font-weight: 00;
         }
          
     }

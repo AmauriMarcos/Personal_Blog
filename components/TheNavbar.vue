@@ -100,7 +100,7 @@ export default {
           font-size: 2rem;
           font-family: 'Abril Fatface', cursive;
           cursor: pointer;
-          color: #82D0C3;;
+          color: #82D0C3;
           transform: translateX(4.7rem);
 
           & .blooming{

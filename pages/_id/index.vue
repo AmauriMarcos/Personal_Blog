@@ -31,11 +31,24 @@
                 <p v-html="content">{{content}}</p>
             </div>   
              
-        </div>   
-         <Comments :id='article.id'></Comments>  
+        </div>
+
+        <div class="more">
+            <h2 class="more__title">See more on Blooming Thoughts</h2>
+            <div class="more__moreArticles">
+                <div v-for="(moreArticle, i) in moreArticles" :key="i" class="more__component-box">
+                    <MoreArticles :img='moreArticle.image.name' :id='moreArticle.id'></MoreArticles>
+                </div>
+             </div>
+        </div>
+        
+        <div class="comments">
+            <h2 class="comments__title">Comments</h2>
+            <Comments class="comments__component" :id='article.id'></Comments>  
+        </div>
+        
     </div>   
 </template>
-
 
 
 <script>
@@ -50,17 +63,20 @@ const md = require('markdown-it')({
 
 import axios from "axios";
 import Comments from "../../components/Comments";
+import MoreArticles from "../../components/MoreArticles";
 export default {
    /*  layout: 'article', */
    componets:{
-       Comments
+       Comments,
+       MoreArticles
    },
     data(){
         return{
             article: [],
             url: '',
             content: '',
-            date: ''
+            date: '',
+            moreArticles: []
         }
     },
     async created() {
@@ -75,8 +91,12 @@ export default {
         const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d)
         const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
         const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
-        this.date = `${da} ${mo} ${ye}`
-             
+        this.date = `${da} ${mo} ${ye}`      
+        
+        const res = await axios.get('https://blooming-thoughts.herokuapp.com/posts')
+        res.data.slice(11,14).map((r) =>{
+              return this.moreArticles.push(r)
+        })
 
     },
 
@@ -169,6 +189,11 @@ export default {
             margin: 0;           
         }
     }
+
+    .corp{
+        padding: 2% 9% 0 9%;
+    }
+
     .theBackground{
         height: 40rem;
         width: 100%;
@@ -198,7 +223,7 @@ export default {
         grid-column: 1/-1;
         grid-row: 1/2;
         z-index: 10;
-        padding: 3% 5%;
+        padding: 3% 5% 0 5%;
 
         @include respond(tab-land){
             padding: 0;
@@ -342,14 +367,50 @@ export default {
             font-size: 1.5rem;
             line-height: 1.7;
             font-weight: 300;
-            white-space: pre-line;
-            
+            white-space: pre-line;           
 
         }
     }
 
-    .corp{
-        padding: 2% 9%;
+    .more{
+        padding: 1% 14% 3% 14%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    
+        &__title{
+            font-family: 'Alegreya Sans';
+            font-weight: 500;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            grid-column: 1/-1;
+            grid-row: 1/2;
+
+            &::before{
+                content: "";
+                background-color: #323232;
+                height: 1px;
+                width: 100%;
+                z-index: 800;
+                display: inline-block;
+            
+            }
+        }
+
+        &__moreArticles{
+            grid-column: 1/-1;
+            grid-row: 2/3;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            justify-items: center;
+            gap: 2rem
+        }
+
+        &__component-box{
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+       
     }
 
 

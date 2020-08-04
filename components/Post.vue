@@ -114,7 +114,7 @@ export default {
         &__title{
             grid-column: 1/-1;
             grid-row: 2/3;
-             font-family: 'Abril Fatface', cursive;
+            font-family: 'Abril Fatface', cursive;
           /*   font-weight: 700; */
             color: #323232;
             width: 95%;

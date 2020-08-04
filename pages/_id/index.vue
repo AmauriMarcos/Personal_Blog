@@ -136,7 +136,7 @@ export default {
 
          @include respond(pre-phone){
             margin-right: 0;
-            clip-path: polygon(0 0, 100% 0, 100% 65vh, 0 70vh);  
+            clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100vh);  
         }
 
         
@@ -195,12 +195,14 @@ export default {
            
 
             & h1{
-                font-family: 'Alfa Slab One', cursive;
+               /*  font-family: 'Alegreya Sans', sans-serif; */
+                font-family: 'Montserrat', sans-serif;
                 color: #323232;
                 line-height: 1.1;
-                letter-spacing: .3rem;
+                letter-spacing: .1rem;
                /*  font-weight: 700; */
                 font-size: 4.4rem;
+                font-weight: 700;
 
                 @include respond(tab-land){
                      font-size: 4rem;

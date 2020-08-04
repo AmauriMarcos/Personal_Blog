@@ -95,8 +95,12 @@ export default {
 <style lang="scss" scoped>
 
 @mixin respond($breakpoint){
+
+        @if $breakpoint == iphone {
+            @media only screen and (max-width: 26.875em){ @content }; //430px
+        }
         @if $breakpoint == phone {
-            @media only screen and (max-width: 37.5em){ @content }; //600px
+            @media only screen and (max-width: 43.75em){ @content }; //700px
         }
 
         @if $breakpoint == tab-port {
@@ -132,7 +136,7 @@ export default {
 
     .nav-container{
         height: 6rem;
-        width: 100%;
+        width: 100%;     
         display: none;
         position: fixed;  
         top: 0;
@@ -201,6 +205,7 @@ export default {
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
 
+
         @include respond(tab-port){ 
             position: fixed;      
             z-index: 500;
@@ -217,12 +222,10 @@ export default {
     .button-search{
         border: none;
         background-color: transparent;
-        padding: .5rem 1rem;
-        position: absolute;
-        right: 4rem;
-        bottom: 19.8rem;
-         cursor: pointer;
-         z-index:10;
+        padding: .5rem 1rem;       
+        cursor: pointer;
+        z-index:10;
+        transform: translateX(9rem) translateY(-1.5rem);
     }
 
     .icon{
@@ -269,10 +272,22 @@ export default {
         background: #EE7B54;
         border-radius: 50%;
         transition: all 1s;
-        transform: translateX(.4rem);
         z-index: 4;
         box-shadow: 0 0 4px 0 rgba(70, 70, 70, 0.4);
       // box-shadow: 0 0 25px 0 crimson;
+
+      @include respond(tab-land){
+          right: -28rem;
+      }
+      
+      @include respond(phone){
+          right: -12rem;
+      }
+
+      @include respond(iphone){
+          right: -6rem;
+      }
+
     &:hover {
       cursor: pointer;
     }

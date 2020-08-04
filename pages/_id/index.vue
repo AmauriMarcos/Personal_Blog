@@ -122,6 +122,15 @@ export default {
      
     }
 
+    p h3{
+        font-family: 'Alegreya Sans';
+        color: #323232;
+        font-size: 2.5rem;
+        font-weight: 500;
+        line-height: 3rem;
+        text-align: center;
+    }
+
     a{
         text-decoration: none;
         font-family: 'Alegreya Sans';

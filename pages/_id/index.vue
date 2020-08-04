@@ -16,13 +16,17 @@
             </div>
 
             <div class="article__info ">
+                <div class="article__info--picture">
+                    <img src="../../assets/img/lindinha.JPG" alt="" class="article__info--picture-round-img">
+                </div>
                  <div class="article__info--author">
-                    <p>by {{article.author}} <span class="simb">|</span></p>
+                    <p>by {{article.author}}</p>
                 </div>
                 <div class="article__info--date">
-                    <p>{{article.date}}</p>
+                    <p>{{date}}</p>
                 </div>             
             </div>
+
             <div class="article__body corp">
                 <p v-html="content">{{content}}</p>
             </div>   
@@ -55,7 +59,8 @@ export default {
         return{
             article: [],
             url: '',
-            content: ''
+            content: '',
+            date: ''
         }
     },
     async created() {
@@ -63,8 +68,15 @@ export default {
 
         this.article = result.data
         this.url = this.article.image.name
-        console.log('HELLO');
-        this.content = md.render(result.data.body)
+        console.log(this.article.date);
+        this.content = md.render(result.data.body);  
+
+        const d = new Date(this.article.date)
+        const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d)
+        const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+        const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
+        this.date = `${da} ${mo} ${ye}`
+             
 
     },
 
@@ -74,6 +86,7 @@ export default {
 <style lang="scss">
 
 @mixin respond($breakpoint){
+  
         @if $breakpoint == phone {
             @media only screen and (max-width: 48.125em){ @content }; //770px
         }
@@ -109,9 +122,17 @@ export default {
      
     }
 
+    a{
+        text-decoration: none;
+        font-family: 'Alegreya Sans';
+        color: tomato;
+    }
+
     p{
         /* margin-top: 1rem; */
     }
+
+  
     .main{
         display: grid;
 
@@ -136,7 +157,8 @@ export default {
 
          @include respond(pre-phone){
             margin-right: 0;
-            clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100vh);  
+            clip-path: none;  
+            background: #f4f7f6;
         }
 
         
@@ -150,10 +172,14 @@ export default {
         grid-column: 1/-1;
         grid-row: 1/2;
         z-index: 10;
-        padding: 3% 10%;
+        padding: 3% 5%;
 
         @include respond(tab-land){
             padding: 0;
+        }
+
+         @include respond(port){
+            padding: 3% 8%;
         }
         
 
@@ -195,14 +221,13 @@ export default {
            
 
             & h1{
-               /*  font-family: 'Alegreya Sans', sans-serif; */
-                font-family: 'Montserrat', sans-serif;
+               font-family: 'Alegreya Sans';
                 color: #323232;
                 line-height: 1.1;
                 letter-spacing: .1rem;
                /*  font-weight: 700; */
                 font-size: 4.4rem;
-                font-weight: 700;
+                font-weight: 900;
 
                 @include respond(tab-land){
                      font-size: 4rem;
@@ -222,42 +247,84 @@ export default {
         &__info{
                 font-family: 'Montserrat', sans-serif;
                 font-size: .9rem;
-                display: flex;
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                justify-content: center;
+                align-items: center;
                 padding: 2rem;
                 margin-left: auto;
-                transform: translateX(-10rem);
+                transform: translateX(-15rem);
                 font-weight: 300;
+                column-gap: 1rem;
+
+                 @include respond(pre-phone){
+                      transform: translateX(-1rem);            
+                 }
+
+            &--picture{
+                grid-column: 1/2;
+                grid-row: 1/3;
+                width: 50px;
+                height: 50px; 
+                justify-self: flex-end;
+
+                 @include respond(pre-phone){
+                    width: 40px;
+                    height: 40px;            
+                 }
+
+                &-round-img{
+                    border-radius: 50%;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
 
             &--author{
+                font-family: 'Alegreya Sans';
+                font-weight: 700;
+                grid-column: 2/3;
+                grid-row: 1/2;
                 font-family: inherit;
                 font-size: inherit;
+
+                 @include respond(pre-phone){
+                    font-size: .8rem;           
+                 }
                       
             }
 
             &--date{
+                font-family: 'Alegreya Sans';
+                font-weight: 500;
+                grid-column: 2/3;
+                grid-row: 2/3;
                 font-family: inherit;
-                font-size: inherit
+                font-size: inherit;
+
+                @include respond(pre-phone){
+                    font-size: .7rem;           
+                 }
             }
 
          
         }
 
         &__body{
-            font-family: 'Alegreya', serif;
-            font-size: 1.3rem;
+            font-family: 'Alegreya Sans';
+            font-size: 1.5rem;
             line-height: 1.7;
-            font-weight: 500;
+            font-weight: 300;
             white-space: pre-line;
+            
 
         }
     }
 
     .corp{
-        padding: 2% 15%;
+        padding: 2% 9%;
     }
 
-    .simb{
-        margin: 0 .5rem;
-    }
 
 </style>    

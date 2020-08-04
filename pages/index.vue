@@ -46,7 +46,7 @@ export default {
 
     data(){
       return{
-        posts: []
+        posts: [],      
    
       }
   },
@@ -55,6 +55,12 @@ export default {
     const res = await axios.get("https://blooming-thoughts.herokuapp.com/posts")  
       //6 posts que aparecem na pagina inicial
         res.data.slice(4, 10).map((post) =>{
+            const d = new Date(post.date)
+            const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d)
+            const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+            const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
+            post.date = `${da} ${mo} ${ye}`
+  
           return this.posts.push(post);
       })
   }

@@ -30,10 +30,20 @@ export default {
     },
     async created(){
          const res = await axios.get("https://blooming-thoughts.herokuapp.com/categories?name=Lifestyle");
-         console.log(res)
          res.data.map((lifestyle) =>{
             let mylifestyle = lifestyle.posts.slice(-3)
-            this.lifestyles = mylifestyle
+            
+            mylifestyle.forEach((life) =>{
+                const d = new Date(life.date)
+                const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d)
+                const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+                const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
+                life.date = `${da} ${mo} ${ye}`
+
+                 return this.lifestyles.push(life);
+            
+            })
+           
          })
     }
 }

@@ -34,7 +34,17 @@ export default {
           console.log(res)
          res.data.map((travels) =>{
             let myTravels = travels.posts.slice(-3)
-            this.travels = myTravels
+
+            myTravels.forEach((travel) =>{
+                const d = new Date(travel.date)
+                const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d)
+                const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+                const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
+                travel.date = `${da} ${mo} ${ye}`
+
+                 return this.travels.push(travel);
+            
+            })
          })
     }
 }

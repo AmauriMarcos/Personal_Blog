@@ -4,14 +4,14 @@
         <div class="more-articles-container__box-img">
             <img :src="`${img}`" alt="" class="more-articles-container__box-img-thumbnail">
         </div>
-        <p class="more-articles-container__description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae velit quasi tempore fuga dicta. </p>
+        <p class="more-articles-container__description">{{title}}</p>
     </div>
     </nuxt-link>
 </template>
 
 <script>
 export default {
-    props: ["img", "id"]
+    props: ["img", "id", "title"]
 }
 </script>
 

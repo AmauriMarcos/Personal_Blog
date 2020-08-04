@@ -37,14 +37,18 @@
             <h2 class="more__title">See more on Blooming Thoughts</h2>
             <div class="more__moreArticles">
                 <div v-for="(moreArticle, i) in moreArticles" :key="i" class="more__component-box">
-                    <MoreArticles :img='moreArticle.image.name' :id='moreArticle.id'></MoreArticles>
+                    <MoreArticles 
+                        :img='moreArticle.image.name' 
+                        :id='moreArticle.id'
+                        :title='moreArticle.title'>
+                    </MoreArticles>
                 </div>
              </div>
         </div>
         
         <div class="comments">
             <h2 class="comments__title">Comments</h2>
-            <Comments class="comments__component" :id='article.id'></Comments>  
+            <Comments class="comments__component" :id='article.id' ></Comments>  
         </div>
         
     </div>   
@@ -147,8 +151,9 @@ export default {
         color: #323232;
         font-size: 2.5rem;
         font-weight: 500;
-        line-height: 3rem;
-        text-align: center;
+        line-height: 2.7rem;
+        margin-top: 2rem;
+         
     }
 
     a{
@@ -158,7 +163,7 @@ export default {
     }
 
     p{
-        /* margin-top: 1rem; */
+       /*  margin-top: 1rem; */
     }
 
     blockquote {

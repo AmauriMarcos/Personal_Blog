@@ -46,6 +46,7 @@ export default {
     
     data(){
         return{
+            text: '',
             categories: [],      
             isActive: false,
             formIs: false,

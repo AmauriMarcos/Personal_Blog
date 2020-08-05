@@ -119,7 +119,7 @@ export default {
             color: #323232;
             width: 95%;
             font-size: 2rem;
-            line-height: 1.3;
+            line-height: 1;
 
             @include respond(phone){
                 font-size: 1.7rem;

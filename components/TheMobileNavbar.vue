@@ -341,14 +341,14 @@ export default {
             width: 100%;   
             flex-direction: column;     
             clip-path: circle(100px at 90% -35%);
-            transition: all .3s ease-out;  
+            transition: all .1s ease-out;  
                   
         }
     }
 
     .nav-links{
         font-size: 35px;
-        margin-bottom: 1.3rem;
+        margin-bottom: .7rem;
         font-weight: 300;
         text-transform: uppercase;
     }
@@ -361,13 +361,13 @@ export default {
         &:link,
         &:visited{
             display: inline-block;
-            font-size: 1.7rem;
+            font-size: 1.3rem;
             font-weight: 300;
             text-decoration: none;
             color: white;
-            padding: .325rem 1.25rem;
+            padding: .325rem .6rem;
             text-transform: uppercase;
-            background: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+ /*            background: linear-gradient(120deg, transparent 30%, transparent 50%, white 50%); */
             background-size: 225%;
             transition: all .3s;         
         }

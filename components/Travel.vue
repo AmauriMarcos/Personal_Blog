@@ -79,7 +79,7 @@ export default {
             color: #323232;
             width: 95%;
             font-size: 2rem;
-            line-height: 1.3;
+             line-height: 1;
 
             &-link{
                 text-decoration: none;
